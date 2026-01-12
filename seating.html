@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seating Lookup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; }
+    input, button { padding: 12px; width: 90%; max-width: 300px; margin: 10px; }
+  </style>
+</head>
+<body>
+
+<h2>Find Your Table</h2>
+<p>Enter your phone number</p>
+
+<input type="tel" id="phone" placeholder="+27">
+<button onclick="findSeat()">Check Seating</button>
+
+<p id="result"></p>
+
+<script>
+async function findSeat() {
+  const phone = document.getElementById("phone").value;
+  const url = "YOUR_PUBLISHED_SHEET_URL";
+
+  const response = await fetch(url);
+  const data = await response.text();
+
+  if (data.includes(phone)) {
+    const rows = data.split("\n");
+    for (let row of rows) {
+      if (row.includes(phone)) {
+        const cols = row.split(",");
+        document.getElementById("result").innerText =
+          "Your table is " + cols[2];
+      }
+    }
+  } else {
+    document.getElementById("result").innerText =
+      "Seating not assigned yet. Please check later.";
+  }
+}
+</script>
+
+</body>
+</html>
