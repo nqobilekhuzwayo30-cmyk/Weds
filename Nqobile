@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nqobile & Sebina Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; padding: 30px; }
+    button { padding: 15px; margin: 10px; font-size: 16px; width: 80%; max-width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Nqobile & Sebina</h1>
+  <p>27 March 2026</p>
+  <p>Wedding Talk 11:00</p>
+  <p>Wedding 14:00</p>
+
+  <a href="rsvp-talk.html"><button>Wedding Talk Only</button></a>
+  <a href="rsvp-full.html"><button>Wedding Talk and Reception</button></a>
+  <a href="seating.html"><button>Check Seating</button></a>
+  <a href="photos.html"><button>Upload Photos</button></a>
+  <a href="map.html"><button>Venue & Directions</button></a>
+</body>
+</html>
