@@ -65,7 +65,14 @@
       return;
     }
 
-    var row = sheetData.find(r => normalizePhone(r.Phone) === input);
+    var row = sheetData.find(r => {
+      var phone = normalizePhone(r.Phone);
+      // Convert +27 or 27 prefix to 0 for matching
+      if(phone.length === 12 && phone.startsWith("27")) phone = "0" + phone.slice(2);
+      if(phone.length === 11 && phone.startsWith("27")) phone = "0" + phone.slice(2);
+      return phone === input;
+    });
+
     if (!row) {
       container.innerText = 'No seating information found for this phone number.';
       return;
