@@ -3,14 +3,37 @@
 <head>
   <title>Wedding Photos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; background-color: #f7f5f2; }
+    h2 { font-size: 28px; margin-bottom: 20px; }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .gallery img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+  </style>
 </head>
 <body>
-  <h2>Upload Your Photos</h2>
-  <p>Share your moments with us</p>
 
-  <input type="file" accept="image/*"><br><br>
-  <button>Upload Photo</button>
+<h2>Wedding Photos</h2>
+<div class="gallery">
+  <!-- Replace FILE_ID_X with actual Google Drive file IDs -->
+  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_1" alt="Photo 1">
+  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_2" alt="Photo 2">
+  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_3" alt="Photo 3">
+  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_4" alt="Photo 4">
+  <!-- Add more photos as needed -->
+</div>
 
-  <p>Thank you for sharing.</p>
 </body>
 </html>
