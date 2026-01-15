@@ -1,20 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wedding RSVP - Full</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f7f5f2;
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    input, select, textarea, button {
+      width: 90%;
+      max-width: 320px;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #d8b384;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #cfa16c;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Wedding Talk and Reception RSVP</h2>
+
 <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="_blank">
 
-  <input type="text" name="entry.994600838" placeholder="Full Name" required><br><br>
+  <input type="text" name="entry.994600838" placeholder="Full Name" required>
+  <input type="tel" name="entry.793758707" placeholder="+27" required>
 
-  <input type="tel" name="entry.793758707" placeholder="+27" required><br><br>
-
-  <label for="guests">Number of Guests</label><br>
+  <label for="guests">Number of Guests</label>
   <select name="entry.458040034" id="guests" required>
     <option value="1" selected>1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
-  </select><br><br>
+  </select>
 
-  <textarea name="entry.282977896" placeholder="Message to the couple"></textarea><br><br>
+  <textarea name="entry.282977896" placeholder="Message to the couple"></textarea>
 
   <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
 
   <button type="submit">Submit RSVP</button>
 </form>
+
+</body>
+</html>
