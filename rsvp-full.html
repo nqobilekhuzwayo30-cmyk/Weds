@@ -23,6 +23,10 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
+    input[readonly] {
+      background-color: #e0e0e0;
+      color: #333;
+    }
     button {
       background-color: #d8b384;
       color: white;
@@ -43,8 +47,9 @@
   <input type="text" name="entry.994600838" placeholder="Full Name" required>
   <input type="tel" name="entry.793758707" placeholder="+27" required>
 
-  <!-- Number of Guests fixed to 1, hidden from guests -->
-  <input type="hidden" name="entry.458040034" value="1">
+  <!-- Number of Guests visible as 1, but readonly -->
+  <label>Number of Guests</label>
+  <input type="text" name="entry.458040034" value="1" readonly>
 
   <textarea name="entry.282977896" placeholder="Message to the couple"></textarea>
 
