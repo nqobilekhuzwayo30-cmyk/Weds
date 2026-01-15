@@ -14,21 +14,12 @@
       font-size: 28px;
       margin-bottom: 20px;
     }
-    input, button {
+    input {
       padding: 10px;
       font-size: 16px;
       margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
-    }
-    button {
-      background-color: #d8b384;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #cfa16c;
     }
     table {
       margin: 20px auto;
@@ -50,50 +41,21 @@
 </head>
 <body>
 
-<h2>Check Your Seating</h2>
-<p>Enter your phone number to see your seating assignment:</p>
-
-<input type="text" id="phoneInput" placeholder="+27..." required>
-<button onclick="findSeating()">Check Seating</button>
-
-<div id="seating"></div>
+<h2>Your Seating Assignment</h2>
+<div id="seating">Loading…</div>
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
 <script>
   var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7EuVjq6Jf1xdvEOjkBU7fkBV1PyUs7uiBKSPX77dV_pZ17k-ehTQjViqvvRGTxviTtesxg2pow_r9/pub?output=csv';
   var sheetData = [];
 
-  // Load CSV once
-  Papa.parse(csvUrl, {
-    download: true,
-    header: true,
-    complete: function(results) {
-      sheetData = results.data;
-    },
-    error: function() {
-      document.getElementById('seating').innerText = 'Error loading seating data.';
-    }
-  });
+  // Normalize phone: remove all non-digits
+  function normalizePhone(p) {
+    return p.replace(/[^0-9]/g, '');
+  }
 
-  function findSeating() {
-    var input = document.getElementById('phoneInput').value.trim();
+  function displaySeating(row) {
     var container = document.getElementById('seating');
-    container.innerHTML = '';
-
-    if (!input) {
-      container.innerText = 'Please enter your phone number.';
-      return;
-    }
-
-    // Find matching row by phone
-    var row = sheetData.find(r => r['Phone'] === input);
-
-    if (!row) {
-      container.innerText = 'No seating information found for this phone number.';
-      return;
-    }
-
-    // Display info in table
     var tableHTML = '<table>';
     tableHTML += '<tr><th>Field</th><th>Info</th></tr>';
     tableHTML += '<tr><td>Name</td><td>' + row['Name'] + '</td></tr>';
@@ -101,9 +63,44 @@
     tableHTML += '<tr><td>Guests</td><td>' + row['Guests'] + '</td></tr>';
     tableHTML += '<tr><td>Table</td><td>' + (row['Table'] || 'Not assigned yet') + '</td></tr>';
     tableHTML += '</table>';
-
     container.innerHTML = tableHTML;
   }
+
+  function initSeating() {
+    Papa.parse(csvUrl, {
+      download: true,
+      header: true,
+      complete: function(results) {
+        sheetData = results.data;
+        // Prompt guest for phone number
+        var input = prompt("Enter your 10-digit phone number:");
+        if (!input) {
+          document.getElementById('seating').innerText = "Phone number required to see seating.";
+          return;
+        }
+        input = normalizePhone(input);
+
+        if (!/^\d{10}$/.test(input)) {
+          document.getElementById('seating').innerText = "Please enter a valid 10-digit phone number.";
+          return;
+        }
+
+        // Find guest
+        var row = sheetData.find(r => normalizePhone(r['Phone']) === input);
+        if (!row) {
+          document.getElementById('seating').innerText = "No seating information found for this phone number.";
+          return;
+        }
+
+        displaySeating(row);
+      },
+      error: function() {
+        document.getElementById('seating').innerText = 'Error loading seating data.';
+      }
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', initSeating);
 </script>
 
 </body>
