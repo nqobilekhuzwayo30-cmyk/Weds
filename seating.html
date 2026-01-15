@@ -4,39 +4,11 @@
   <title>Wedding Seating</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background-color: #f7f5f2;
-    }
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 90%;
-      max-width: 400px;
-      background-color: #fff;
-    }
-    td, th {
-      border: 1px solid #ccc;
-      padding: 12px;
-      text-align: left;
-    }
-    th {
-      background-color: #d8b384;
-      color: white;
-    }
+    body { font-family: Arial; text-align: center; padding: 20px; background-color: #f7f5f2; }
+    h2 { font-size: 28px; margin-bottom: 20px; }
+    table { margin: 20px auto; border-collapse: collapse; width: 90%; max-width: 400px; background-color: #fff; }
+    td, th { border: 1px solid #ccc; padding: 12px; text-align: left; }
+    th { background-color: #d8b384; color: white; }
   </style>
 </head>
 <body>
@@ -44,63 +16,44 @@
 <h2>Your Seating Assignment</h2>
 <div id="seating">Loading…</div>
 
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabletop@1.6.0/src/tabletop.min.js"></script>
 <script>
-  var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7EuVjq6Jf1xdvEOjkBU7fkBV1PyUs7uiBKSPX77dV_pZ17k-ehTQjViqvvRGTxviTtesxg2pow_r9/pub?output=csv';
-  var sheetData = [];
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7EuVjq6Jf1xdvEOjkBU7fkBV1PyUs7uiBKSPX77dV_pZ17k-ehTQjViqvvRGTxviTtesxg2pow_r9/pubhtml';
 
-  // Normalize phone: remove all non-digits
-  function normalizePhone(p) {
-    return p.replace(/[^0-9]/g, '');
-  }
+  function normalizePhone(p) { return p.replace(/[^0-9]/g,''); }
 
   function displaySeating(row) {
     var container = document.getElementById('seating');
     var tableHTML = '<table>';
     tableHTML += '<tr><th>Field</th><th>Info</th></tr>';
-    tableHTML += '<tr><td>Name</td><td>' + row['Name'] + '</td></tr>';
-    tableHTML += '<tr><td>Phone</td><td>' + row['Phone'] + '</td></tr>';
-    tableHTML += '<tr><td>Guests</td><td>' + row['Guests'] + '</td></tr>';
-    tableHTML += '<tr><td>Table</td><td>' + (row['Table'] || 'Not assigned yet') + '</td></tr>';
+    tableHTML += '<tr><td>Name</td><td>' + row.Name + '</td></tr>';
+    tableHTML += '<tr><td>Phone</td><td>' + row.Phone + '</td></tr>';
+    tableHTML += '<tr><td>Guests</td><td>' + row.Guests + '</td></tr>';
+    tableHTML += '<tr><td>Table</td><td>' + (row.Table || 'Not assigned yet') + '</td></tr>';
     tableHTML += '</table>';
     container.innerHTML = tableHTML;
   }
 
-  function initSeating() {
-    Papa.parse(csvUrl, {
-      download: true,
-      header: true,
-      complete: function(results) {
-        sheetData = results.data;
-        // Prompt guest for phone number
+  function init() {
+    Tabletop.init({
+      key: publicSpreadsheetUrl,
+      simpleSheet: true,
+      callback: function(data) {
         var input = prompt("Enter your 10-digit phone number:");
-        if (!input) {
-          document.getElementById('seating').innerText = "Phone number required to see seating.";
-          return;
-        }
+        if(!input) { document.getElementById('seating').innerText="Phone number required."; return; }
         input = normalizePhone(input);
+        if(!/^\d{10}$/.test(input)) { document.getElementById('seating').innerText="Enter a valid 10-digit number."; return; }
 
-        if (!/^\d{10}$/.test(input)) {
-          document.getElementById('seating').innerText = "Please enter a valid 10-digit phone number.";
-          return;
-        }
-
-        // Find guest
-        var row = sheetData.find(r => normalizePhone(r['Phone']) === input);
-        if (!row) {
-          document.getElementById('seating').innerText = "No seating information found for this phone number.";
-          return;
-        }
+        var row = data.find(r => normalizePhone(r.Phone) === input);
+        if(!row) { document.getElementById('seating').innerText="No seating info found."; return; }
 
         displaySeating(row);
       },
-      error: function() {
-        document.getElementById('seating').innerText = 'Error loading seating data.';
-      }
+      error: function() { document.getElementById('seating').innerText="Error loading seating data."; }
     });
   }
 
-  window.addEventListener('DOMContentLoaded', initSeating);
+  window.addEventListener('DOMContentLoaded', init);
 </script>
 
 </body>
