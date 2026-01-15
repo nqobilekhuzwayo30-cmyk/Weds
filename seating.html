@@ -32,19 +32,24 @@
 <h2>Seating Assignments</h2>
 <div id="seating">Loading…</div>
 
-<script src="https://cdn.jsdelivr.net/npm/tabletop@1.6.0/src/tabletop.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
 <script>
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7EuVjq6Jf1xdvEOjkBU7fkBV1PyUs7uiBKSPX77dV_pZ17k-ehTQjViqvvRGTxviTtesxg2pow_r9/pubhtml';
+  var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7EuVjq6Jf1xdvEOjkBU7fkBV1PyUs7uiBKSPX77dV_pZ17k-ehTQjViqvvRGTxviTtesxg2pow_r9/pub?output=csv';
 
-  function init() {
-    Tabletop.init({
-      key: publicSpreadsheetUrl,
-      simpleSheet: true,
-      callback: showSeating
+  function loadSeating() {
+    Papa.parse(csvUrl, {
+      download: true,
+      header: true,
+      complete: function(results) {
+        displaySeating(results.data);
+      },
+      error: function() {
+        document.getElementById('seating').innerText = 'Error loading seating data.';
+      }
     });
   }
 
-  function showSeating(data) {
+  function displaySeating(data) {
     var container = document.getElementById('seating');
     container.innerHTML = '';
 
@@ -54,21 +59,19 @@
     }
 
     data.forEach(function(row) {
-      // Default table logic if none assigned
+      // Example: Name, Phone, Guests, Table
       var tableName = row['Table'] || 'Not assigned yet';
-
       var html = '<div class="entry">';
       html += '<div class="name">' + row['Name'] + '</div>';
       html += '<div>Phone: ' + row['Phone'] + '</div>';
       html += '<div>Guests: ' + row['Guests'] + '</div>';
       html += '<div>Table: ' + tableName + '</div>';
       html += '</div>';
-
       container.innerHTML += html;
     });
   }
 
-  window.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('DOMContentLoaded', loadSeating);
 </script>
 
 </body>
