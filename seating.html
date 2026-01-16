@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seating</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f5f2;
-      text-align: center;
-      padding: 20px;
-    }
-    .card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #d8b384;
-      border: none;
-      color: #ffffff;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
+<meta charset="UTF-8">
+<title>Seating</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="card">
-  <h2>Your Seating</h2>
-  <p>Enter your phone number</p>
-  <input type="text" id="phone" placeholder="e.g. 0623832721">
-  <button onclick="findSeat()">Check Seating</button>
-  <div id="result"></div>
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 
-<script>
-function findSeat() {
-  const phone = document.getElementById("phone").value.trim();
-  if (phone === "0623832721") {
-    document.getElementById("result").innerText = "Table 3";
-  } else {
-    document.getElementById("result").innerText = "No seating information found.";
-  }
+<style>
+body{
+margin:0;
+background:#0f0f14;
+font-family:Inter;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
 }
-</script>
 
+.panel{
+padding:60px;
+width:420px;
+background:rgba(255,255,255,0.08);
+border-radius:30px;
+backdrop-filter:blur(22px);
+text-align:center;
+}
+
+h2{
+font-family:Playfair Display;
+color:#d4af37;
+font-size:34px;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+margin-top:20px;
+background:rgba(255,255,255,0.12);
+color:white;
+}
+
+.result{
+margin-top:30px;
+font-size:18px;
+color:#d4af37;
+}
+</style>
+</head>
+
+<body>
+<div class="panel">
+<h2>Your Table</h2>
+<input placeholder="Phone Number">
+<div class="result">Table information appears here</div>
+</div>
 </body>
 </html>
