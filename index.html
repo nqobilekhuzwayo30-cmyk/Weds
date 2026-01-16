@@ -5,67 +5,60 @@
 <title>Nqobile & Sebina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
-body{
+body {
 margin:0;
-min-height:100vh;
-background:radial-gradient(circle at top,#1b1b22,#0f0f14);
-font-family:Inter,sans-serif;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.container{
+font-family:Arial,sans-serif;
+background:#f7f5f2;
+color:#333;
 text-align:center;
-padding:60px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(24px);
-border-radius:30px;
-transform:perspective(1200px) rotateX(6deg);
-transition:0.6s;
 }
 
-.container:hover{
-transform:perspective(1200px) rotateX(0);
+.fade {
+animation:fadeIn 0.8s ease;
 }
 
-h1{
-font-family:Playfair Display,serif;
-font-size:48px;
-color:#d4af37;
-margin-bottom:10px;
+@keyframes fadeIn {
+from { opacity:0; transform:translateY(20px); }
+to { opacity:1; transform:translateY(0); }
 }
 
-p{
-opacity:0.8;
+.container {
+padding:60px 20px;
 }
 
-a button{
-margin-top:20px;
-padding:16px 36px;
+h1 {
+font-size:40px;
+color:#b89b5e;
+}
+
+button {
+padding:16px;
+margin:12px;
+width:260px;
 border:none;
-border-radius:40px;
-background:#d4af37;
-color:black;
-font-size:14px;
+border-radius:10px;
+background:#d8b384;
+color:white;
+font-size:16px;
 cursor:pointer;
+}
+
+a {
+text-decoration:none;
 }
 </style>
 </head>
 
-<body>
+<body class="fade">
 <div class="container">
 <h1>Nqobile & Sebina</h1>
 <p>27 March 2026 · Johannesburg South</p>
 
-<a href="rsvp-full.html"><button>RSVP</button></a>
-<a href="seating.html"><button>Seating</button></a>
-<a href="map.html"><button>Venue Map</button></a>
-<a href="photos.html"><button>Photos</button></a>
+<a href="rsvp-full.html"><button>RSVP</button></a><br>
+<a href="seating.html"><button>View Seating</button></a><br>
+<a href="map.html"><button>Venue Map</button></a><br>
+<a href="photos.html"><button>Wedding Photos</button></a>
 </div>
 </body>
 </html>
