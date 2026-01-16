@@ -5,14 +5,11 @@
 <title>RSVP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
-background:#0f0f14;
-font-family:Inter;
-color:white;
+font-family:Arial;
+background:#f7f5f2;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -20,63 +17,86 @@ min-height:100vh;
 }
 
 .card{
-width:420px;
+background:rgba(216,179,132,0.15);
 padding:50px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
 border-radius:28px;
-animation:float 6s ease-in-out infinite;
+width:360px;
+text-align:center;
+transition:0.5s;
+}
+
+.card:hover{
+transform:scale(1.02);
 }
 
 h2{
-font-family:Playfair Display;
-color:#d4af37;
-font-size:36px;
+color:#b89b5e;
 }
 
 input{
 width:100%;
 padding:14px;
-margin:14px 0;
+margin:10px 0;
+border-radius:10px;
 border:none;
-border-radius:14px;
-background:rgba(255,255,255,0.12);
-color:white;
+background:rgba(255,255,255,0.15);
+color:#333;
 }
 
-input[readonly]{
-opacity:0.6;
-}
+input[readonly]{opacity:0.7;}
 
 button{
 width:100%;
 padding:16px;
 border:none;
 border-radius:40px;
-background:#d4af37;
+background:#d8b384;
 color:black;
-font-size:14px;
+font-size:16px;
 cursor:pointer;
+transition:0.3s;
 }
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-12px)}
-100%{transform:translateY(0)}
+button:hover{background:#cfa16c;}
+
+.success{
+display:none;
+padding:20px;
+color:#b89b5e;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.95);}
+to{opacity:1; transform:scale(1);}
 }
 </style>
+
+<script>
+function showSuccess(){
+document.getElementById("form").style.display="none";
+document.getElementById("success").style.display="block";
+return false;
+}
+</script>
 </head>
 
 <body>
 <div class="card">
+<div id="form">
 <h2>RSVP</h2>
-
-<form action="YOUR_GOOGLE_FORM_POST_URL" method="POST">
+<form action="YOUR_GOOGLE_FORM_POST_URL" method="POST" onsubmit="return showSuccess();">
 <input name="entry.NAME" placeholder="Full Name" required>
 <input name="entry.PHONE" placeholder="Phone Number" required>
 <input value="1" readonly>
 <button type="submit">Confirm Attendance</button>
 </form>
+</div>
+
+<div id="success" class="success">
+<h2>Thank You!</h2>
+<p>Your RSVP has been received.</p>
+</div>
 </div>
 </body>
 </html>
