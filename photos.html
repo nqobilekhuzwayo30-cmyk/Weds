@@ -2,76 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Photos</title>
+<title>Wedding Photos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
-background:#0f0f14;
-font-family:Inter;
-color:white;
+font-family:Arial;
+background:#f7f5f2;
+padding:40px;
 }
 
-header{
-padding:80px 8%;
-}
+h2{color:#b89b5e;}
 
-h2{
-font-family:Playfair Display;
-color:#d4af37;
-font-size:42px;
-}
-
-.upload{
-padding:0 8% 40px;
-}
-
-.upload a{
+a{
 display:inline-block;
-padding:16px 40px;
-border-radius:40px;
-background:#d4af37;
-color:black;
+margin:20px 0;
+padding:14px 30px;
+background:#d8b384;
+color:white;
+border-radius:12px;
 text-decoration:none;
+transition:0.3s;
 }
 
-.gallery{
-padding:0 8% 100px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:26px;
-}
-
-.photo{
-height:260px;
-border-radius:26px;
-background:linear-gradient(135deg,#222,#111);
-transition:0.5s;
-}
-
-.photo:hover{
-transform:scale(1.08);
-}
+a:hover{background:#cfa16c;}
 </style>
 </head>
 
 <body>
-<header>
-<h2>Wedding Memories</h2>
-</header>
-
-<div class="upload">
+<h2>Wedding Photos</h2>
 <a href="YOUR_GOOGLE_DRIVE_UPLOAD_LINK" target="_blank">Upload Photos</a>
-</div>
-
-<div class="gallery">
-<div class="photo"></div>
-<div class="photo"></div>
-<div class="photo"></div>
-<div class="photo"></div>
-</div>
 </body>
 </html>
