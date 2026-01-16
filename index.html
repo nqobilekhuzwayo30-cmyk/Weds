@@ -35,10 +35,12 @@ body, html{
   backdrop-filter: blur(20px);
   border-radius:28px;
   transition:0.6s;
+  animation: float 6s ease-in-out infinite;
 }
 
 .container:hover{
-  transform:scale(1.03);
+  transform: translateY(-6px) rotateX(2deg) rotateY(2deg);
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
 }
 
 h1{
@@ -65,9 +67,17 @@ button{
 
 button:hover{
   background:#cfa16c;
+  transform: translateY(-4px) rotateX(1deg) rotateY(1deg);
+  box-shadow:0 12px 24px rgba(0,0,0,0.2);
 }
 
 a{text-decoration:none;}
+
+@keyframes float{
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
 </style>
 </head>
 
