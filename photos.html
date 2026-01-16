@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wedding Photos</title>
+  <title>Wedding Photo Upload</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial; text-align: center; padding: 20px; background-color: #f7f5f2; }
-    h2 { font-size: 28px; margin-bottom: 20px; }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f7f5f2;
     }
-    .gallery img {
-      width: 200px;
-      height: auto;
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      margin: 20px 0;
+      background-color: #d8b384;
+      color: white;
+      text-decoration: none;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.2s;
+      font-size: 16px;
     }
-    .gallery img:hover { transform: scale(1.05); }
+    .button:hover {
+      background-color: #cfa16c;
+    }
+    .note {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
-<h2>Wedding Photos</h2>
-<div class="gallery">
-  <!-- Replace FILE_ID_X with actual Google Drive file IDs -->
-  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_1" alt="Photo 1">
-  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_2" alt="Photo 2">
-  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_3" alt="Photo 3">
-  <img src="https://drive.google.com/uc?export=view&id=FILE_ID_4" alt="Photo 4">
-  <!-- Add more photos as needed -->
-</div>
+  <h2>Share Your Photos</h2>
+
+  <p>Click the button below to upload your photos to our wedding album.</p>
+
+  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSfbP5lN-_d1NqNRIwXf148FGsug7FKhUiVy8OOxXHG5y2bCBA/viewform" target="_blank">
+    Upload Your Photos
+  </a>
+
+  <p class="note">
+    Your photos will be uploaded directly into our Google Drive folder.
+  </p>
 
 </body>
 </html>
