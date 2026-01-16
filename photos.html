@@ -1,55 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wedding Photo Upload</title>
+  <title>Wedding Photos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f7f5f2;
       text-align: center;
       padding: 20px;
-      background-color: #f7f5f2;
     }
-    h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: auto;
     }
-    p {
-      font-size: 16px;
-    }
-    .button {
-      display: inline-block;
-      padding: 14px 22px;
-      margin: 20px 0;
+    a button {
+      margin-top: 15px;
+      padding: 14px;
+      width: 100%;
       background-color: #d8b384;
-      color: white;
-      text-decoration: none;
+      border: none;
       border-radius: 8px;
+      color: #ffffff;
       font-size: 16px;
-    }
-    .button:hover {
-      background-color: #cfa16c;
-    }
-    .note {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #555;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
+<div class="card">
   <h2>Share Your Photos</h2>
-
-  <p>Click the button below to upload your photos to our wedding album.</p>
-
-  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSfbP5lN-_d1NqNRIwXf148FGsug7FKhUiVy8OOxXHG5y2bCBA/viewform" target="_blank">
-    Upload Your Photos
+  <p>Upload your wedding moments here</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfbP5lN-_d1NqNRIwXf148FGsug7FKhUiVy8OOxXHG5y2bCBA/viewform" target="_blank">
+    <button>Upload Photos</button>
   </a>
-
-  <p class="note">
-    Your photos will be uploaded directly into our Google Drive folder.
-  </p>
+</div>
 
 </body>
 </html>
