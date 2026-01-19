@@ -1,109 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nqobile & Sebina Wedding</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Nqobile & Sebina Wedding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f7f5f2;
-      color: #333;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-    header {
-      padding: 30px 20px 10px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  background: linear-gradient(120deg, #f7f5f2, #efe6d8, #f7f5f2);
+  background-size: 300% 300%;
+  animation: shimmer 18s ease infinite;
+  overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 5px;
-      color: #3a2f23;
-    }
+@keyframes shimmer {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
 
-    p.subtitle {
-      font-size: 18px;
-      color: #6b5a44;
-      margin-top: 0;
-    }
+.page {
+  animation: fadeIn 1.2s ease forwards;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
 
-    .nav-buttons {
-      margin: 30px 0;
-    }
+.invite-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
 
-    .nav-buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 24px;
-      background-color: #d8b384;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+.invite-card {
+  background: rgba(255,255,255,0.92);
+  max-width: 440px;
+  width: 100%;
+  padding: 60px 35px;
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: floatIn 1.6s ease forwards;
+}
 
-    .nav-buttons a:hover {
-      background-color: #cfa16c;
-    }
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    footer {
-      margin: 40px 0 20px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
+.invite-names {
+  font-family: Playfair Display, serif;
+  font-style: italic;
+  font-size: 44px;
+  color: #c9a24d;
+  margin-bottom: 12px;
+}
+
+.invite-subtitle {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.invite-divider {
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #c9a24d, transparent);
+  margin: 30px auto;
+}
+
+.invite-text {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.invite-details {
+  margin: 28px 0;
+  font-size: 15px;
+}
+
+.invite-button {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #d8b384, #c9a24d);
+  color: white;
+  border-radius: 35px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.invite-button:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 45px rgba(201,162,77,0.45);
+}
+
+.canva-wrapper {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.canva-wrapper iframe {
+  border-radius: 16px;
+}
+</style>
 </head>
 
 <body>
+<div class="page">
 
-  <header>
-    <h1>Nqobile & Sebina</h1>
-    <p class="subtitle">We are getting married</p>
-  </header>
+<div class="invite-wrapper">
+  <div class="invite-card">
+    <h1 class="invite-names">Nqobile & Sebina</h1>
+    <p class="invite-subtitle">Together with their families</p>
 
-  <div class="container">
+    <div class="invite-divider"></div>
 
-    <!-- Canva Invitation Embed -->
-    <div style="position: relative; width: 100%; height: 0; padding-top: 74.5242%; box-shadow: 0 2px 8px rgba(63,69,81,0.16); margin: 1.6em auto 0.9em; overflow: hidden; border-radius: 12px;">
-      <iframe
-        loading="lazy"
-        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
-        src="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view?embed"
-        allowfullscreen
-        allow="fullscreen">
-      </iframe>
+    <p class="invite-text">Request the pleasure of your company</p>
+    <p class="invite-text">As they celebrate their wedding day</p>
+
+    <div class="invite-details">
+      <p>Reception</p>
+      <p>Buena Vista Country Estate</p>
+      <p>Johannesburg South</p>
     </div>
 
-    <div style="text-align: center; font-size: 0.9rem; opacity: 0.75;">
-      <a href="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view" target="_blank" rel="noopener">
-        View full invitation
-      </a>
-      <br>
-      Design by Nqobile Khuzwayo
-    </div>
+    <a href="rsvp-full.html" class="invite-button">RSVP</a>
+  </div>
+</div>
 
-    <!-- Navigation -->
-    <div class="nav-buttons">
-      <a href="rsvp-full.html">RSVP</a>
-      <a href="seating.html">Seating</a>
-      <a href="map.html">Map</a>
-      <a href="photos.html">Photos</a>
-    </div>
-
+<div class="canva-wrapper">
+  <div style="position: relative; width: 100%; height: 0; padding-top: 74.5242%; box-shadow: 0 2px 8px rgba(63,69,81,0.16); overflow: hidden; border-radius: 12px;">
+    <iframe loading="lazy"
+      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+      src="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view?embed"
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <footer>
-    Nqobile and Sebina Wedding
-  </footer>
+  <div style="text-align:center; font-size:14px; opacity:0.75; margin-top:10px;">
+    <a href="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view" target="_blank">View full invitation</a><br>
+    Design by Nqobile Khuzwayo
+  </div>
+</div>
 
+</div>
 </body>
 </html>
