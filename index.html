@@ -102,14 +102,14 @@ body {
   box-shadow: 0 25px 45px rgba(201,162,77,0.45);
 }
 
-/* Canva / Image preview */
+/* Invitation PNG Preview */
 .canva-preview {
   max-width: 720px;
   margin: 80px auto;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
 }
 
 .canva-preview img {
@@ -122,12 +122,20 @@ body {
   box-shadow: 0 25px 60px rgba(201,162,77,0.45);
   filter: brightness(1.05);
 }
+
+.canva-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-top: 10px;
+}
 </style>
 </head>
 
 <body>
 <div class="page">
 
+  <!-- Main Invite Card -->
   <div class="invite-wrapper">
     <div class="invite-card">
       <h1 class="invite-names">Nqobile & Sebina</h1>
@@ -148,8 +156,15 @@ body {
     </div>
   </div>
 
+  <!-- Image Preview of Invitation -->
   <div class="canva-preview">
-    <img src="https://via.placeholder.com/720x540/efe6d8/c9a24d?text=Your+Invitation+Preview" alt="Nqobile & Sebina Wedding Invitation">
+    <img src="1.jpg" alt="Nqobile & Sebina Wedding Invitation">
+  </div>
+  <div class="canva-caption">
+    <a href="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view" target="_blank" rel="noopener">
+      View full invitation
+    </a><br>
+    Design by Nqobile Khuzwayo
   </div>
 
 </div>
