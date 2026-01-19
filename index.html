@@ -50,14 +50,8 @@ body {
 }
 
 @keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .invite-names {
@@ -108,14 +102,25 @@ body {
   box-shadow: 0 25px 45px rgba(201,162,77,0.45);
 }
 
-.canva-wrapper {
+/* Canva / Image preview */
+.canva-preview {
   max-width: 720px;
   margin: 80px auto;
-  padding: 0 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.canva-wrapper iframe {
-  border-radius: 16px;
+.canva-preview img {
+  width: 100%;
+  display: block;
+}
+
+.canva-preview:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 60px rgba(201,162,77,0.45);
+  filter: brightness(1.05);
 }
 </style>
 </head>
@@ -123,40 +128,29 @@ body {
 <body>
 <div class="page">
 
-<div class="invite-wrapper">
-  <div class="invite-card">
-    <h1 class="invite-names">Nqobile & Sebina</h1>
-    <p class="invite-subtitle">Together with their families</p>
+  <div class="invite-wrapper">
+    <div class="invite-card">
+      <h1 class="invite-names">Nqobile & Sebina</h1>
+      <p class="invite-subtitle">Together with their families</p>
 
-    <div class="invite-divider"></div>
+      <div class="invite-divider"></div>
 
-    <p class="invite-text">Request the pleasure of your company</p>
-    <p class="invite-text">As they celebrate their wedding day</p>
+      <p class="invite-text">Request the pleasure of your company</p>
+      <p class="invite-text">As they celebrate their wedding day</p>
 
-    <div class="invite-details">
-      <p>Reception</p>
-      <p>Buena Vista Country Estate</p>
-      <p>Johannesburg South</p>
+      <div class="invite-details">
+        <p>Reception</p>
+        <p>Buena Vista Country Estate</p>
+        <p>Johannesburg South</p>
+      </div>
+
+      <a href="rsvp-full.html" class="invite-button">RSVP</a>
     </div>
-
-    <a href="rsvp-full.html" class="invite-button">RSVP</a>
-  </div>
-</div>
-
-<div class="canva-wrapper">
-  <div style="position: relative; width: 100%; height: 0; padding-top: 74.5242%; box-shadow: 0 2px 8px rgba(63,69,81,0.16); overflow: hidden; border-radius: 12px;">
-    <iframe loading="lazy"
-      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
-      src="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view?embed"
-      allowfullscreen>
-    </iframe>
   </div>
 
-  <div style="text-align:center; font-size:14px; opacity:0.75; margin-top:10px;">
-    <a href="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view" target="_blank">View full invitation</a><br>
-    Design by Nqobile Khuzwayo
+  <div class="canva-preview">
+    <img src="https://via.placeholder.com/720x540/efe6d8/c9a24d?text=Your+Invitation+Preview" alt="Nqobile & Sebina Wedding Invitation">
   </div>
-</div>
 
 </div>
 </body>
