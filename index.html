@@ -108,7 +108,7 @@
       letter-spacing: 1px;
     }
 
-    /* RSVP FORM STYLES - ADDED */
+    /* RSVP FORM STYLES */
     .rsvp-section {
       background: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
@@ -292,7 +292,7 @@
     <!-- Countdown -->
     <div class="countdown" id="countdown"></div>
 
-    <!-- RSVP FORM - ADDED BELOW COUNTDOWN -->
+    <!-- RSVP FORM -->
     <section class="rsvp-section">
       <h2 class="rsvp-title">Wedding Talk and Reception RSVP</h2>
       <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" 
@@ -343,7 +343,7 @@
       </form>
     </section>
 
-    <!-- Location -->
+    <!-- Location - FIXED MAP -->
     <section class="section">
       <h2 class="section-title">Location</h2>
       <div class="location">
@@ -354,7 +354,10 @@
         </p>
         <div class="map-container">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.174758602912!2d28.01322861512698!3d-26.24694798318059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMjnCsDE0JzQ2LjIiUyAyOMKwMDAnNDcuNyJF!5e0!3m2!1sen!2sza!4v1737390000000!5m2!1sen!2sza"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.5!2d28.01322861512698!3d-26.24694798318059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950f5b8f8f8f8f%3A0x1234567890abcdef!2sBuena%20Vista%20Country%20Estate%2C%2021%20Barnacle%20Rd%2C%20Towerby%2C%20Johannesburg%20South%2C%202091!5e0!3m2!1sen!2sza!4v1737390000000!5m2!1sen!2sza"
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius:15px;" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
@@ -374,7 +377,7 @@
   </div>
 
   <script>
-    // Right-click protection (from original Canva site)
+    // Right-click protection
     document.addEventListener('contextmenu', e => {
       const isMedia = ['img', 'image', 'video', 'svg', 'picture'].some(tagName =>
         tagName.localeCompare(e.target.tagName, undefined, { sensitivity: 'base' }) === 0
@@ -382,7 +385,7 @@
       if (isMedia) e.preventDefault();
     });
 
-    // Countdown timer to wedding date
+    // Countdown timer
     function updateCountdown() {
       const weddingDate = new Date('2026-03-27T00:00:00').getTime();
       const now = new Date().getTime();
@@ -419,7 +422,6 @@
       `;
     }
 
-    // Initialize countdown and update every second
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
