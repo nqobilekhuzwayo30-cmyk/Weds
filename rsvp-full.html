@@ -1,83 +1,374 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>RSVP</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Nqobile and Sebina Wedding - RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Lato:ital,wght@1,400&display=swap" rel="stylesheet">
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f7f2f3 0%, #e8d9cf 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  background: linear-gradient(-45deg,#f7f5f2,#d8b384,#b89b5e,#cfa16c);
-  background-size: 400% 400%;
-  animation: bgMove 20s infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-.card {
-  width: 380px;
-  padding: 40px;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(20px);
-  border-radius: 28px;
-  text-align: center;
-  animation: float 6s infinite;
-}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      margin-bottom: 60px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+      animation: fadeInUp 1.2s ease-out;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
 
-input {
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  border-radius: 10px;
-  border: none;
-}
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-button {
-  margin-top: 18px;
-  padding: 14px;
-  width: 100%;
-  border-radius: 30px;
-  border: none;
-  background: #d8b384;
-  color: white;
-  font-size: 16px;
-}
+    .hero img {
+      max-width: 100%;
+      max-height: 400px;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
 
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+    .title {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      color: #211e20;
+      font-weight: 300;
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
 
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-</style>
+    .date {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: #211e20;
+      font-weight: bold;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .rsvp-title {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      color: #211e20;
+      text-align: center;
+      margin: 60px 0 40px 0;
+      font-weight: 300;
+      letter-spacing: -1px;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 60px 40px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(20px);
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      color: #211e20;
+      margin-bottom: 10px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 18px 20px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 2px solid #e0d8d0;
+      background: rgba(255,255,255,0.8);
+      transition: all 0.3s ease;
+      font-family: 'Georgia', serif;
+      color: #211e20;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #d8b384;
+      box-shadow: 0 0 0 4px rgba(216,179,132,0.1);
+      transform: translateY(-2px);
+    }
+
+    input[readonly] {
+      background: #f0edea;
+      color: #666;
+      cursor: not-allowed;
+      border-color: #d0c8c0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: 'Georgia', serif;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #d8b384, #cfa16c);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Georgia', serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 20px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(216,179,132,0.4);
+      background: linear-gradient(135deg, #cfa16c, #d8b384);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 50px 0;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.7);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .countdown-item {
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #211e20;
+      display: block;
+      font-family: 'Georgia', serif;
+    }
+
+    .countdown-label {
+      font-size: 0.85rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      .form-container {
+        padding: 40px 25px;
+      }
+      
+      .countdown {
+        gap: 15px;
+        padding: 20px;
+      }
+      
+      .countdown-number {
+        font-size: 2rem;
+      }
+      
+      .countdown-item {
+        min-width: 80px;
+      }
+    }
+
+    /* Right-click protection */
+    img {
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
 </head>
-
 <body>
-<div class="card">
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+           alt="Nqobile & Sebina Wedding" 
+           loading="lazy"
+           onerror="this.src='https://via.placeholder.com/800x500/e8d9cf/211e20?text=Nqobile+%26+Sebina'" />
+      <h1 class="title">Nqobile & Sebina</h1>
+      <p class="date">Friday, March 27, 2026</p>
+    </section>
 
-<div style="position: relative; width: 100%; height: 0; padding-top: 74.5242%; margin-bottom: 20px; overflow: hidden; border-radius: 8px;">
-<iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none"
-src="https://www.canva.com/design/DAG-2t4KD_c/ktC7Kh0rTHkzmCoIDcgwyw/view?embed"></iframe>
-</div>
+    <!-- Countdown -->
+    <div class="countdown" id="countdown"></div>
 
-<form action="YOUR_GOOGLE_FORM_POST_URL" method="POST">
-<input name="entry.NAME" placeholder="Full Name" required>
-<input name="entry.PHONE" placeholder="Phone Number" required>
-<input value="1" readonly>
-<button type="submit">Confirm RSVP</button>
-</form>
+    <!-- RSVP Form -->
+    <h2 class="rsvp-title">Wedding Talk and Reception RSVP</h2>
+    
+    <div class="form-container">
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" 
+            method="POST" 
+            target="_blank"
+            onsubmit="return confirm('Thank you for your RSVP! This will open Google Forms in a new tab. Continue?')">
+        
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" 
+                 id="fullName"
+                 name="entry.994600838" 
+                 placeholder="Enter your full name" 
+                 required>
+        </div>
 
-</div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" 
+                 id="phone"
+                 name="entry.793758707" 
+                 placeholder="+27 123 456 789" 
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label>Number of Guests</label>
+          <input type="text" 
+                 name="entry.458040034" 
+                 value="1" 
+                 readonly 
+                 title="Number of guests attending">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message to the Couple</label>
+          <textarea id="message"
+                    name="entry.282977896" 
+                    placeholder="Share your love and best wishes... (optional)"></textarea>
+        </div>
+
+        <!-- Hidden RSVP type -->
+        <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
+
+        <button type="submit" class="submit-btn">
+          Send My RSVP 💍
+        </button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <p>We can't wait to celebrate with you! ❤️</p>
+      <p>Design inspired by original Canva template</p>
+    </footer>
+  </div>
+
+  <script>
+    // Right-click protection for images
+    document.addEventListener('contextmenu', e => {
+      const isMedia = ['img', 'image', 'video', 'svg', 'picture'].some(tagName =>
+        tagName.localeCompare(e.target.tagName, undefined, { sensitivity: 'base' }) === 0
+      );
+      if (isMedia) e.preventDefault();
+    });
+
+    // Countdown timer to wedding date
+    function updateCountdown() {
+      const weddingDate = new Date('2026-03-27T00:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = 
+          '<div style="text-align:center; font-size:2.2rem; color:#d8b384; font-weight:bold;">The big day is here! 💍✨</div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML = `
+        <div class="countdown-item">
+          <span class="countdown-number">${days}</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${hours.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${minutes.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${seconds.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      `;
+    }
+
+    // Initialize countdown and update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Form enhancements
+    document.querySelector('input[type="tel"]').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 3) {
+        value = '+27 ' + value.slice(-9);
+      }
+      e.target.value = value;
+    });
+  </script>
 </body>
 </html>
