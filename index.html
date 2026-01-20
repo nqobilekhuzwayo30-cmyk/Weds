@@ -23,59 +23,30 @@
       line-height: 1.6;
     }
 
-    /* Navigation Bar - CENTERED */
+    /* Navigation Bar - LOGO ONLY CENTERED */
     .navbar {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      padding: 15px 0;
+      padding: 20px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      text-align: center;
     }
 
     .logo {
       font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       color: #d8b384;
       font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-links a {
-      color: #211e20;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 20px;
-    }
-
-    .nav-links a:hover {
-      background: rgba(216, 179, 132, 0.1);
-      color: #d8b384;
-      transform: translateY(-2px);
+      display: inline-block;
     }
 
     .container {
@@ -344,10 +315,6 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        gap: 20px;
-      }
-      
       .countdown { gap: 20px; }
       .countdown-item { padding: 20px 15px; min-width: 90px; }
       .countdown-number { font-size: 2rem; }
@@ -356,17 +323,12 @@
   </style>
 </head>
 <body>
-  <!-- Navigation - NOW CENTERED -->
+  <!-- Navigation - LOGO ONLY CENTERED -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
         Nqobile <i class="fas fa-heart" style="color: #d8b384;"></i> Sebina
       </div>
-      <ul class="nav-links">
-        <li><a href="#countdown"><i class="far fa-clock"></i> Countdown</a></li>
-        <li><a href="#rsvp"><i class="fas fa-check"></i> RSVP</a></li>
-        <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
-      </ul>
     </div>
   </nav>
 
@@ -457,17 +419,6 @@
         tagName.localeCompare(e.target.tagName, undefined, { sensitivity: 'base' }) === 0
       );
       if (isMedia) e.preventDefault();
-    });
-
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
     });
 
     // Countdown timer
