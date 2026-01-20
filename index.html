@@ -168,24 +168,12 @@
       line-height: 1.6;
     }
 
-    .map-container {
-      position: relative;
-      height: 400px;
-      border-radius: 15px;
-      overflow: hidden;
-      margin-top: 30px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
-
-    .map-placeholder {
+    .map-container iframe {
       width: 100%;
-      height: 100%;
-      background: #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #666;
+      height: 400px;
+      border: 0;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
     .cta {
@@ -213,18 +201,6 @@
       font-size: 0.9rem;
     }
 
-    /* Protection */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      z-index: -1;
-    }
-
     @media (max-width: 768px) {
       .countdown {
         gap: 20px;
@@ -245,7 +221,10 @@
   <div class="container">
     <!-- Hero Section -->
     <section class="hero">
-      <img src="https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina" alt="Wedding Photo" />
+      <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+           alt="Nqobile & Sebina Wedding" 
+           loading="lazy"
+           onerror="this.src='https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina'" />
       <h1 class="title">Nqobile & Sebina</h1>
       <p class="date">Friday, March 27, 2026</p>
     </section>
@@ -257,13 +236,22 @@
     <section class="section">
       <div class="images-grid">
         <div class="image-card">
-          <img src="https://via.placeholder.com/400x300/d4a574/ffffff?text=Couple+Photo+1" alt="Couple" />
+          <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+               alt="Couple Photo 1" 
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300/d4a574/ffffff?text=Couple+Photo'" />
         </div>
         <div class="image-card">
-          <img src="https://via.placeholder.com/400x300/b8956e/ffffff?text=Couple+Photo+2" alt="Couple" />
+          <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+               alt="Couple Photo 2" 
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300/b8956e/ffffff?text=Couple+Photo'" />
         </div>
         <div class="image-card">
-          <img src="https://via.placeholder.com/400x300/d4a574/ffffff?text=Couple+Photo+3" alt="Couple" />
+          <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+               alt="Couple Photo 3" 
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300/d4a574/ffffff?text=Couple+Photo'" />
         </div>
       </div>
     </section>
@@ -277,12 +265,15 @@
           Towerby, Johannesburg South, 2091
         </p>
         <div class="map-container">
-          <div class="map-placeholder">
-            🗺️ Google Maps Embed<br>
-            (Replace with actual iframe)
-          </div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.174758602912!2d28.01322861512698!3d-26.24694798318059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDE0JzQ2LjIiUyAyOMKwMDAnNDcuNyJF!5e0!3m2!1sen!2sza!4v1737390000000!5m2!1sen!2sza"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-      </section>
+      </div>
+    </section>
 
     <!-- CTA -->
     <section class="cta">
@@ -295,7 +286,7 @@
   </div>
 
   <script>
-    // Right-click protection (from original)
+    // Right-click protection (from original Canva site)
     document.addEventListener('contextmenu', e => {
       const isMedia = ['img', 'image', 'video', 'svg', 'picture'].some(tagName =>
         tagName.localeCompare(e.target.tagName, undefined, { sensitivity: 'base' }) === 0
@@ -303,11 +294,17 @@
       if (isMedia) e.preventDefault();
     });
 
-    // Countdown timer
+    // Countdown timer to wedding date
     function updateCountdown() {
       const weddingDate = new Date('2026-03-27T00:00:00').getTime();
       const now = new Date().getTime();
       const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = 
+          '<div style="text-align:center; font-size:2rem; color:#d4a574;">The big day is here! 💍✨</div>';
+        return;
+      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -320,33 +317,23 @@
           <span class="countdown-label">Days</span>
         </div>
         <div class="countdown-item">
-          <span class="countdown-number">${hours}</span>
+          <span class="countdown-number">${hours.toString().padStart(2, '0')}</span>
           <span class="countdown-label">Hours</span>
         </div>
         <div class="countdown-item">
-          <span class="countdown-number">${minutes}</span>
+          <span class="countdown-number">${minutes.toString().padStart(2, '0')}</span>
           <span class="countdown-label">Minutes</span>
         </div>
         <div class="countdown-item">
-          <span class="countdown-number">${seconds}</span>
+          <span class="countdown-number">${seconds.toString().padStart(2, '0')}</span>
           <span class="countdown-label">Seconds</span>
         </div>
       `;
     }
 
-    // Update countdown every second
+    // Initialize countdown and update every second
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Smooth scroll and animations
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
   </script>
 </body>
 </html>
