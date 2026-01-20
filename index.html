@@ -23,7 +23,7 @@
       line-height: 1.6;
     }
 
-    /* Navigation Bar */
+    /* Navigation Bar - CENTERED */
     .navbar {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
@@ -39,8 +39,10 @@
       margin: 0 auto;
       padding: 0 20px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      gap: 10px;
+      text-align: center;
     }
 
     .logo {
@@ -54,6 +56,8 @@
       display: flex;
       list-style: none;
       gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -144,33 +148,6 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Story Section */
-    .story-section {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 60px 40px;
-      margin: 60px 0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .story-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      color: #211e20;
-      margin-bottom: 30px;
-      font-weight: 400;
-    }
-
-    .story-text {
-      font-size: 1.2rem;
-      color: #666;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
     }
 
     .countdown {
@@ -368,7 +345,7 @@
 
     @media (max-width: 768px) {
       .nav-links {
-        display: none;
+        gap: 20px;
       }
       
       .countdown { gap: 20px; }
@@ -379,14 +356,13 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navigation - NOW CENTERED -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
         Nqobile <i class="fas fa-heart" style="color: #d8b384;"></i> Sebina
       </div>
       <ul class="nav-links">
-        <li><a href="#story"><i class="fas fa-heart"></i> Our Story</a></li>
         <li><a href="#countdown"><i class="far fa-clock"></i> Countdown</a></li>
         <li><a href="#rsvp"><i class="fas fa-check"></i> RSVP</a></li>
         <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
@@ -405,19 +381,6 @@
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina'" />
       </div>
-    </section>
-
-    <!-- Our Story - NEW -->
-    <section class="story-section" id="story">
-      <h2 class="story-title">
-        <i class="fas fa-heart"></i> Our Love Story
-      </h2>
-      <p class="story-text">
-        Nqobile and Sebina's journey began with a spark that grew into an unbreakable bond. 
-        Through laughter, dreams, and countless adventures, they've built a love story 
-        written in the stars. On March 27, 2026, they invite you to celebrate the 
-        beautiful chapter that begins their forever together.
-      </p>
     </section>
 
     <!-- Countdown -->
