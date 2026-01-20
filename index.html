@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Nqobile and Sebina Wedding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -28,12 +29,62 @@
     .hero {
       text-align: center;
       padding: 80px 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: linear-gradient(135deg, rgba(247, 242, 243, 0.95), rgba(232, 217, 207, 0.95));
       border-radius: 20px;
       margin-bottom: 60px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       animation: fadeInUp 1.5s ease-out;
       position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(216, 179, 132, 0.1), rgba(212, 165, 116, 0.1));
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px 40px;
+    }
+
+    .hero-names {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 700;
+      color: #2c1f1e;
+      margin-bottom: 20px;
+      letter-spacing: -3px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      line-height: 0.9;
+    }
+
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #d8b384;
+      font-weight: 600;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(216,179,132,0.3);
+    }
+
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      margin-top: 30px;
+      border: 8px solid rgba(255,255,255,0.9);
     }
 
     @keyframes fadeInUp {
@@ -45,29 +96,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 15px;
-      margin-bottom: 40px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
-
-    .title {
-      font-size: clamp(2.5rem, 8vw, 6rem);
-      color: #211e20;
-      font-weight: 300;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
-    }
-
-    .date {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      color: #211e20;
-      font-weight: bold;
-      margin-bottom: 40px;
     }
 
     .countdown {
@@ -274,19 +302,25 @@
       .countdown-number {
         font-size: 2rem;
       }
+
+      .hero-names {
+        font-size: clamp(3rem, 10vw, 5rem);
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Hero Section -->
+    <!-- Hero Section - NAMES & DATE ABOVE IMAGE -->
     <section class="hero">
-      <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
-           alt="Nqobile & Sebina Wedding" 
-           loading="lazy"
-           onerror="this.src='https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina'" />
-      <h1 class="title">Nqobile & Sebina</h1>
-      <p class="date">Friday, March 27, 2026</p>
+      <div class="hero-content">
+        <h1 class="hero-names">Nqobile & Sebina</h1>
+        <p class="hero-date">Friday, March 27, 2026</p>
+        <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
+             alt="Nqobile & Sebina Wedding" 
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina'" />
+      </div>
     </section>
 
     <!-- Countdown -->
@@ -334,7 +368,6 @@
                     placeholder="Share your love and best wishes... (optional)"></textarea>
         </div>
 
-        <!-- Hidden RSVP type -->
         <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
 
         <button type="submit" class="submit-btn">
@@ -343,7 +376,7 @@
       </form>
     </section>
 
-    <!-- Location - PERFECT MAP WITH PIN -->
+    <!-- Location -->
     <section class="section">
       <h2 class="section-title">Location</h2>
       <div class="location">
