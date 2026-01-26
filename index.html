@@ -1,661 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Nqobile and Sebina Wedding</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Navigation Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Elegant Wedding Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* GLOBAL PROTECTION */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-    }
+<meta charset="utf-8">
+<title>Nqobile and Sebina Wedding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    body {
-      font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #f7f2f3 0%, #e8d9cf 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.6;
-      /* Drag disabled globally */
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 
-    img {
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-      pointer-events: none;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
 
-    /* Navigation Bar - LOGO ONLY CENTERED */
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+body {
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
+  min-height: 100vh;
+  overflow-x: hidden;
+  animation: pageFade 1.2s ease forwards;
+}
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    .logo {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      color: #d8b384;
-      font-weight: 700;
-      display: inline-block;
-      user-select: none;
-    }
+.navbar {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.2rem;
+  color: #d8b384;
+  font-weight: 700;
+}
 
-    /* HERO WITH GLOW + ANIMATIONS */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, rgba(247, 242, 243, 0.95), rgba(232, 217, 207, 0.95));
-      border-radius: 20px;
-      margin-bottom: 60px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      animation: fadeInUp 1.5s ease-out;
-      position: relative;
-      overflow: hidden;
-    }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
 
-    /* ANIMATED SHIMMER BACKGROUND */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(216, 179, 132, 0.1) 50%, 
-        transparent 70%);
-      animation: shimmer 3s infinite;
-      z-index: 0;
-      opacity: 0.6;
-    }
+.hero {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+}
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, rgba(216, 179, 132, 0.1), rgba(212, 165, 116, 0.1));
-      z-index: 0;
-    }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 90px 24px 70px;
+  text-align: center;
+  background: linear-gradient(
+    rgba(247,242,243,0.85),
+    rgba(232,217,207,0.85)
+  );
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 60px 20px 40px;
-    }
+.hero-names {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  color: #2c1f1e;
+  line-height: 0.95;
+}
 
-    .hero-names {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(4rem, 12vw, 8rem);
-      font-weight: 700;
-      color: #2c1f1e;
-      margin-bottom: 20px;
-      letter-spacing: -3px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      line-height: 0.9;
-      user-select: none;
-    }
+.hero-date {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  color: #d8b384;
+  margin: 20px 0 40px;
+  font-style: italic;
+}
 
-    .hero-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 400;
-      font-style: italic;
-      color: #d8b384;
-      font-weight: 600;
-      margin-bottom: 40px;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 10px rgba(216,179,132,0.3);
-      user-select: none;
-    }
+.invite-video {
+  width: 100%;
+  max-width: 820px;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  animation: floatSlow 6s ease-in-out infinite;
+  pointer-events: none;
+}
 
-    /* HERO IMAGE WITH GLOW + LIGHT SWEEP */
-    .hero-image-container {
-      position: relative;
-      display: inline-block;
-      margin-top: 30px;
-    }
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-      border: 8px solid rgba(255,255,255,0.9);
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      filter: saturate(1.1) contrast(1.05);
-      max-height: 500px;
-      object-fit: cover;
-    }
+.invite-video-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-    /* GLOW EFFECT */
-    .hero img:hover {
-      filter: saturate(1.2) contrast(1.1) drop-shadow(0 0 30px rgba(216, 179, 132, 0.6)) drop-shadow(0 0 50px rgba(212, 165, 116, 0.4));
-      transform: scale(1.02);
-    }
+.invite-video-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.25)
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
 
-    /* LIGHT SWEEP ON HOVER */
-    .hero-image-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: left 0.8s;
-      border-radius: 15px;
-      z-index: 2;
-      pointer-events: none;
-    }
+.invite-video-wrapper:hover::after {
+  opacity: 1;
+}
 
-    .hero img:hover ~ .hero-image-container::before,
-    .hero-image-container:hover::before {
-      left: 100%;
-    }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 60px 0;
+  flex-wrap: wrap;
+}
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.countdown-item {
+  background: rgba(255,255,255,0.8);
+  padding: 26px 22px;
+  border-radius: 20px;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
-    /* COUNTDOWN */
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 60px 0;
-      flex-wrap: wrap;
-    }
+.countdown-number {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #211e20;
+}
 
-    .countdown-item {
-      background: rgba(33, 30, 32, 0.05);
-      padding: 30px 20px;
-      border-radius: 20px;
-      min-width: 120px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      animation: pulse 2s infinite;
-      user-select: none;
-    }
+.countdown-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+}
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .countdown-number {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #211e20;
-      display: block;
-    }
-
-    .countdown-label {
-      font-size: 0.9rem;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* RSVP FORM */
-    .rsvp-section {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 60px 40px;
-      margin: 60px 0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      position: relative;
-    }
-
-    .rsvp-title {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      color: #211e20;
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: 300;
-      letter-spacing: -1px;
-      user-select: none;
-    }
-
-    .form-group {
-      margin-bottom: 25px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 1.1rem;
-      color: #211e20;
-      margin-bottom: 10px;
-      font-weight: 500;
-      user-select: none;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 18px 20px;
-      font-size: 16px;
-      border-radius: 12px;
-      border: 2px solid #e0d8d0;
-      background: rgba(255,255,255,0.8);
-      transition: all 0.3s ease;
-      font-family: 'Georgia', serif;
-      color: #211e20;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #d8b384;
-      box-shadow: 0 0 0 4px rgba(216,179,132,0.1);
-      transform: translateY(-2px);
-    }
-
-    input[readonly] {
-      background: #f0edea;
-      color: #666;
-      cursor: not-allowed;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 20px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, #d8b384, #cfa16c);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Georgia', serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(216,179,132,0.4);
-    }
-
-    /* RSVP SUCCESS ANIMATION */
-    .success-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: linear-gradient(135deg, rgba(216, 179, 132, 0.95), rgba(212, 165, 116, 0.95));
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .success-overlay.show {
-      display: flex;
-    }
-
-    .success-heart {
-      font-size: 8rem;
-      color: white;
-      animation: heartBeat 1s infinite;
-      margin-bottom: 20px;
-    }
-
-    .success-text {
-      font-size: 2.5rem;
-      color: white;
-      font-family: 'Dancing Script', cursive;
-      text-align: center;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    @keyframes successPop {
-      0% { transform: scale(0.7) rotate(-180deg); opacity: 0; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-
-    /* OTHER SECTIONS */
-    .section {
-      margin: 80px 0;
-      padding: 60px 0;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 6vw, 4rem);
-      color: #211e20;
-      text-align: center;
-      margin-bottom: 50px;
-      font-weight: 300;
-      letter-spacing: -1px;
-      user-select: none;
-    }
-
-    .location {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 50px;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-    }
-
-    .location-venue {
-      font-size: 1.6rem;
-      color: #211e20;
-      font-weight: bold;
-      margin-bottom: 20px;
-      user-select: none;
-    }
-
-    .location-address {
-      font-size: 1.4rem;
-      color: #211e20;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      user-select: none;
-    }
-
-    .map-container {
-      position: relative;
-      height: 400px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    .cta {
-      text-align: center;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-style: italic;
-      color: #ffffff;
-      background: linear-gradient(135deg, #d4a574, #b8956e);
-      padding: 80px 40px;
-      border-radius: 25px;
-      margin: 80px 0;
-      box-shadow: 0 25px 70px rgba(212, 165, 116, 0.4);
-      animation: glow 3s ease-in-out infinite alternate;
-      user-select: none;
-    }
-
-    @keyframes glow {
-      from { box-shadow: 0 25px 70px rgba(212, 165, 116, 0.4); }
-      to { box-shadow: 0 25px 70px rgba(212, 165, 116, 0.6); }
-    }
-
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #666;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(216,179,132,0.3);
-      margin-top: 60px;
-      user-select: none;
-    }
-
-    /* MOBILE OPTIMIZATION */
-    @media (max-width: 768px) {
-      .countdown { gap: 20px; }
-      .countdown-item { padding: 20px 15px; min-width: 90px; }
-      .countdown-number { font-size: 2rem; }
-      .hero-names { font-size: clamp(3rem, 10vw, 5rem); }
-      .success-heart { font-size: 5rem; }
-      .success-text { font-size: 1.8rem; }
-    }
-  </style>
+.footer {
+  text-align: center;
+  margin: 80px 0 30px;
+  color: #666;
+  font-size: 0.9rem;
+}
+</style>
 </head>
+
 <body>
-  <!-- Navigation - LOGO ONLY CENTERED -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        Nqobile <i class="fas fa-heart" style="color: #d8b384;"></i> Sebina
-      </div>
+
+<nav class="navbar">
+  <div class="logo">
+    Nqobile <i class="fas fa-heart"></i> Sebina
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <video autoplay muted loop playsinline preload="auto" class="bg-video">
+    <source src="golden-light.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1 class="hero-names">Nqobile & Sebina</h1>
+    <p class="hero-date">Friday, March 27, 2026</p>
+
+    <div class="invite-video-wrapper">
+      <video autoplay muted loop playsinline preload="metadata" class="invite-video" draggable="false">
+        <source src="vid.mp4" type="video/mp4">
+      </video>
     </div>
-  </nav>
-
-  <div class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-names">Nqobile & Sebina</h1>
-        <p class="hero-date">Friday, March 27, 2026</p>
-        <div class="hero-image-container">
-          <img src="https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg" 
-               alt="Nqobile & Sebina Wedding" 
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/800x600/e8d9cf/211e20?text=Nqobile+%26+Sebina'">
-        </div>
-      </div>
-    </section>
-
-    <!-- Countdown -->
-    <div class="countdown" id="countdown"></div>
-
-    <!-- RSVP FORM -->
-    <section class="rsvp-section" id="rsvp">
-      <h2 class="rsvp-title">Wedding Talk and Reception RSVP</h2>
-      <form id="rsvpForm" onsubmit="handleRSVP(event)">
-        <div class="form-group">
-          <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
-          <input type="text" id="fullName" name="entry.994600838" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
-          <input type="tel" id="phone" name="entry.793758707" placeholder="+27 123 456 789" required>
-        </div>
-
-        <div class="form-group">
-          <label><i class="fas fa-users"></i> Number of Guests</label>
-          <input type="text" name="entry.458040034" value="1" readonly title="Number of guests attending">
-        </div>
-
-        <div class="form-group">
-          <label for="message"><i class="fas fa-heart"></i> Message to the Couple</label>
-          <textarea id="message" name="entry.282977896" placeholder="Share your love and best wishes... (optional)"></textarea>
-        </div>
-
-        <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-paper-plane"></i> Send My RSVP 💍
-        </button>
-      </form>
-    </section>
-
-    <!-- Location -->
-    <section class="section" id="location">
-      <h2 class="section-title">Location</h2>
-      <div class="location">
-        <div class="location-venue">Buena Vista Country Estate</div>
-        <p class="location-address">
-          21 Barnacle Rd<br>
-          Towerby, Johannesburg South, 2091
-        </p>
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.174758602912!2d28.01322861512698!3d-26.24694798318059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2s21%20Barnacle%20Rd%2C%20Towerby%2C%20Johannesburg%20South%2C%202091!5e0!3m2!1sen!2sza!4v1737390000000!5m2!1sen!2sza"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-      See you there! <i class="fas fa-heart"></i>
-    </section>
-
-    <footer class="footer">
-      <p><i class="fas fa-heart"></i> Made with love by Nqobile & Sebina </p>
-    </footer>
   </div>
+</section>
 
-  <!-- RSVP SUCCESS OVERLAY -->
-  <div class="success-overlay" id="successOverlay">
-    <div class="success-heart">💍</div>
-    <div class="success-text">RSVP Received! Thank You! 💕</div>
-  </div>
+<div class="countdown" id="countdown"></div>
 
-  <script>
-    // IMAGE PRELOAD
-    const images = [
-      'https://raw.githubusercontent.com/nqobilekhuzwayo30-cmyk/nqobile-sebina-wedding/main/4.jpg'
-    ];
-    images.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
+<footer class="footer">
+  Made with love for Nqobile and Sebina
+</footer>
 
-    // POINTER LOCK ON FIRST INTERACTION
-    let interactionStarted = false;
-    document.addEventListener('click', function() {
-      if (!interactionStarted) {
-        document.body.style.cursor = 'none';
-        interactionStarted = true;
-      }
-    }, { once: true });
+</div>
 
-    // COUNTDOWN TIMER
-    function updateCountdown() {
-      const weddingDate = new Date('2026-03-27T00:00:00').getTime();
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+<script>
+document.addEventListener("contextmenu", e => e.preventDefault());
 
-      if (distance < 0) {
-        document.getElementById('countdown').innerHTML = 
-          '<div style="text-align:center; font-size:2rem; color:#d4a574;">The big day is here! 💍✨</div>';
-        return;
-      }
+document.addEventListener("click", () => {
+  if (document.body.requestPointerLock) {
+    document.body.requestPointerLock();
+  }
+});
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+function updateCountdown() {
+  const weddingDate = new Date("2026-03-27T00:00:00").getTime();
+  const now = new Date().getTime();
+  const d = weddingDate - now;
 
-      document.getElementById('countdown').innerHTML = `
-        <div class="countdown-item">
-          <span class="countdown-number">${days}</span>
-          <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">${hours.toString().padStart(2, '0')}</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">${minutes.toString().padStart(2, '0')}</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">${seconds.toString().padStart(2, '0')}</span>
-          <span class="countdown-label">Seconds</span>
-        </div>
-      `;
-    }
+  if (d < 0) return;
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+  const days = Math.floor(d / (1000*60*60*24));
+  const hours = Math.floor((d / (1000*60*60)) % 24);
+  const minutes = Math.floor((d / (1000*60)) % 60);
+  const seconds = Math.floor((d / 1000) % 60);
 
-    // PHONE AUTO-FORMAT
-    document.querySelector('input[type="tel"]').addEventListener('input', function(e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length >= 3) {
-        value = '+27 ' + value.slice(-9);
-      }
-      e.target.value = value;
-    });
+  document.getElementById("countdown").innerHTML = `
+    <div class="countdown-item"><div class="countdown-number">${days}</div><div class="countdown-label">Days</div></div>
+    <div class="countdown-item"><div class="countdown-number">${hours}</div><div class="countdown-label">Hours</div></div>
+    <div class="countdown-item"><div class="countdown-number">${minutes}</div><div class="countdown-label">Minutes</div></div>
+    <div class="countdown-item"><div class="countdown-number">${seconds}</div><div class="countdown-label">Seconds</div></div>
+  `;
+}
 
-    // RSVP SUCCESS ANIMATION
-    function handleRSVP(event) {
-      event.preventDefault();
-      
-      // Show success overlay
-      const overlay = document.getElementById('successOverlay');
-      overlay.classList.add('show');
-      
-      // Auto-hide after 3 seconds
-      setTimeout(() => {
-        overlay.classList.remove('show');
-      }, 3000);
-      
-      // Optionally submit form (uncomment if needed)
-      // const formData = new FormData(event.target);
-      // fetch(event.target.action, {
-      //   method: 'POST',
-      //   body: formData
-      // });
-      
-      // Reset form
-      document.getElementById('rsvpForm').reset();
-    }
-  </script>
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
