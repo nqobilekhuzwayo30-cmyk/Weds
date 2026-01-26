@@ -23,12 +23,6 @@ body {
   background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
   min-height: 100vh;
   overflow-x: hidden;
-  animation: pageFade 1.2s ease forwards;
-}
-
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 body::before {
@@ -147,6 +141,7 @@ body::before {
   opacity: 1;
 }
 
+/* Countdown header */
 .countdown-title {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
@@ -161,6 +156,7 @@ body::before {
   animation: shimmerHeader 4s ease-in-out infinite;
 }
 
+/* Countdown */
 .countdown {
   display: flex;
   justify-content: center;
@@ -186,18 +182,19 @@ body::before {
   animation: shimmerCount 3s ease-in-out infinite;
 }
 
-@keyframes shimmerCount {
-  0% { text-shadow: 0 0 2px #d8b384; }
-  50% { text-shadow: 0 0 8px #fff, 0 0 12px #d8b384; }
-  100% { text-shadow: 0 0 2px #d8b384; }
-}
-
 .countdown-label {
   font-size: 1rem;
   color: #666;
   text-transform: uppercase;
 }
 
+@keyframes shimmerCount {
+  0% { text-shadow: 0 0 2px #d8b384; }
+  50% { text-shadow: 0 0 8px #fff, 0 0 12px #d8b384; }
+  100% { text-shadow: 0 0 2px #d8b384; }
+}
+
+/* Section headers shimmer differently */
 .section-header {
   font-family: "Cormorant Garamond", serif;
   font-size: 3rem;
@@ -215,46 +212,20 @@ body::before {
   100% { color: #2c1f1e; }
 }
 
-.qna {
+/* Other sections */
+.qna, .thank-you, .map-container, .rsvp-form {
   background: rgba(255,255,255,0.85);
   border-radius: 20px;
   padding: 25px 20px;
   margin-bottom: 50px;
-}
-
-.qna p {
-  margin-bottom: 12px;
-  font-size: 1rem;
-  color: #2c1f1e;
-}
-
-.map-container {
   text-align: center;
-  margin-bottom: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .map-container img {
   width: 100%;
   max-width: 800px;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.map-container h3 {
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-  color: #2c1f1e;
-}
-
-.thank-you {
-  text-align: center;
-  margin: 60px 0 30px;
-  color: #2c1f1e;
-  font-size: 1rem;
-  padding: 25px;
-  border: 2px solid #d8b384;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.85);
 }
 
 .thank-you img {
@@ -263,19 +234,9 @@ body::before {
   border-radius: 12px;
 }
 
-.rsvp-form {
-  max-width: 600px;
-  margin: 40px auto;
-  text-align: center;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
 .rsvp-form iframe {
   width: 100%;
-  height: 500px;
+  height: 600px;
   border: none;
   border-radius: 18px;
 }
@@ -293,9 +254,7 @@ body::before {
 <body>
 
 <nav class="navbar">
-  <div class="logo">
-    Nqobile <i class="fas fa-heart"></i> Sebina
-  </div>
+  <div class="logo">Nqobile <i class="fas fa-heart"></i> Sebina</div>
 </nav>
 
 <div class="container">
@@ -304,11 +263,9 @@ body::before {
   <video autoplay muted loop playsinline preload="auto" class="bg-video">
     <source src="golden-light.mp4" type="video/mp4">
   </video>
-
   <div class="hero-content">
     <h1 class="hero-names">Nqobile & Sebina</h1>
     <p class="hero-date">Friday, March 27, 2026</p>
-
     <div class="invite-video-wrapper">
       <video autoplay muted loop playsinline preload="metadata" class="invite-video">
         <source src="vid.mp4" type="video/mp4">
@@ -322,30 +279,36 @@ body::before {
 
 <div class="section-header">Reception</div>
 <div class="map-container">
-  <h3>Reception Address</h3>
-  <img src="reception-map.jpg" alt="Buena Vista Country Estate, 21 Barnacle Rd, Towerby, Johannesburg South, 2091">
+  <h3>Buena Vista Country Estate</h3>
+  <iframe src="https://www.google.com/maps?q=Buena+Vista+Country+Estate+Johannesburg&output=embed"></iframe>
+</div>
+
+<div class="section-header">Wedding Talk</div>
+<div class="map-container">
+  <h3>Kingdom Hall of Jehovah’s Witnesses</h3>
+  <iframe src="https://www.google.com/maps?q=10+Sherwood+Ave+Kibler+Park&output=embed"></iframe>
 </div>
 
 <div class="section-header">RSVP</div>
 <div class="rsvp-form">
-  <iframe src="https://docs.google.com/forms/d/e/1HtUBISw_jjDtpRw76bmcr87mAhW7dpZjjGm8aRmYjys/viewform?embedded=true"></iframe>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform?embedded=true"></iframe>
 </div>
 
 <div class="section-header">Q&A</div>
 <div class="qna">
-  <p><strong>When is the RSVP deadline?</strong> Please RSVP by March 1st, so we can have an accurate headcount.</p>
-  <p><strong>Are kids welcome?</strong> As much as we love your little ones, we will not be including them in the ceremony or reception.</p>
-  <p><strong>Where should I park?</strong> There is plenty of free parking near the entrance.</p>
+  <p><strong>When is the RSVP deadline?</strong> Please RSVP by March 1st.</p>
+  <p><strong>Are kids welcome?</strong> Children are not included in the ceremony or reception.</p>
+  <p><strong>Where should I park?</strong> Plenty of free parking near the entrance.</p>
   <p><strong>Is the wedding indoors or outdoors?</strong> Everything will be indoor.</p>
-  <p><strong>Is it okay to take pictures with our phones and cameras during the wedding?</strong> Yes! We would love for you to take photos and share them on our Google link. Please refrain from taking photos during the Wedding talk and posting without the Bride and Groom's permission.</p>
+  <p><strong>Is it okay to take pictures?</strong> Yes! Please share on Google link. Avoid photos during the Wedding talk or posting without permission.</p>
 </div>
 
 <div class="thank-you">
-  Thank you for celebrating with us!  
+  Thank you for celebrating with us!
   <img src="00.jpg" alt="Thank You">
 </div>
 
-<footer class="footer">
+<footer class="footer" style="text-align:center; margin-bottom:50px;">
   Made with love for Nqobile and Sebina
 </footer>
 
@@ -357,12 +320,10 @@ function updateCountdown() {
   const now = new Date().getTime();
   const d = weddingDate - now;
   if (d < 0) return;
-
   const days = Math.floor(d / (1000*60*60*24));
   const hours = Math.floor((d / (1000*60*60)) % 24);
   const minutes = Math.floor((d / (1000*60)) % 60);
   const seconds = Math.floor((d / 1000) % 60);
-
   document.getElementById("countdown").innerHTML = `
     <div class="countdown-item"><div class="countdown-number">${days}</div><div class="countdown-label">Days</div></div>
     <div class="countdown-item"><div class="countdown-number">${hours}</div><div class="countdown-label">Hours</div></div>
@@ -370,7 +331,6 @@ function updateCountdown() {
     <div class="countdown-item"><div class="countdown-number">${seconds}</div><div class="countdown-label">Seconds</div></div>
   `;
 }
-
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
