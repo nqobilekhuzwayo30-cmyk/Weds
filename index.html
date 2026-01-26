@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>Nqobile and Sebina Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -14,371 +13,164 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
-  -webkit-user-drag: none;
-  user-drag: none;
 }
 
 body {
-  font-family: Georgia, serif;
+  font-family: "Cormorant Garamond", serif;
   background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
-  background-size: 200% 200%;
-  animation: shimmerBg 6s linear infinite;
-  z-index: -1;
-}
-
-@keyframes shimmerBg {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.navbar {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(16px);
-  padding: 18px 0;
-  position: sticky;
-  top: 0;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  color: #d8b384;
-  font-weight: 700;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 24px;
-}
-
-.hero {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-top: 40px;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.18);
-}
-
-.bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 90px 24px 70px;
-  text-align: center;
-  background: linear-gradient(rgba(247,242,243,0.85), rgba(232,217,207,0.85));
-}
-
-.hero-names {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(4rem, 12vw, 7rem);
   color: #2c1f1e;
 }
 
-.hero-date {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.4rem;
-  color: #d8b384;
-  margin: 20px 0 40px;
-}
-
-.invite-video {
-  width: 100%;
-  max-width: 820px;
-  border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-  animation: floatSlow 6s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes floatSlow {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
-  100% { box-shadow: 0 35px 100px rgba(255,216,132,0.6); }
-}
-
-.invite-video-wrapper {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.invite-video-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  background: linear-gradient(120deg, rgba(255,255,255,0.25), rgba(255,255,255,0), rgba(255,255,255,0.25));
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.invite-video-wrapper:hover::after {
-  opacity: 1;
-}
-
-/* Countdown header */
-.countdown-title {
+header {
   text-align: center;
-  font-family: "Cormorant Garamond", serif;
+  padding: 50px 20px;
+}
+
+header h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 4.5rem;
+  color: #d8b384;
+}
+
+header p {
+  font-size: 1.6rem;
+}
+
+section {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
   font-size: 2.8rem;
-  color: #2c1f1e;
-  margin-top: 60px;
   margin-bottom: 30px;
-  border: 2px solid #d8b384;
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 12px;
-  animation: shimmerHeader 4s ease-in-out infinite;
+  color: #d8b384;
+  animation: headerShimmer 6s ease-in-out infinite;
 }
 
-/* Countdown */
+@keyframes headerShimmer {
+  0% { opacity: 0.85; }
+  50% { opacity: 1; }
+  100% { opacity: 0.85; }
+}
+
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin: 40px 0;
+  gap: 20px;
   flex-wrap: wrap;
-  text-align: center;
 }
 
-.countdown-item {
-  background: rgba(255,255,255,0.8);
-  padding: 26px 22px;
+.countdown-box {
+  background: rgba(255,255,255,0.85);
   border-radius: 20px;
+  padding: 22px;
   min-width: 120px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.countdown-number {
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: #d8b384;
-  animation: shimmerCount 3s ease-in-out infinite;
-}
-
-.countdown-label {
-  font-size: 1rem;
-  color: #666;
-  text-transform: uppercase;
-}
-
-@keyframes shimmerCount {
-  0% { text-shadow: 0 0 2px #d8b384; }
-  50% { text-shadow: 0 0 8px #fff, 0 0 12px #d8b384; }
-  100% { text-shadow: 0 0 2px #d8b384; }
-}
-
-/* Section headers shimmer differently */
-.section-header {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 3rem;
-  color: #2c1f1e;
-  margin: 50px 0 20px;
-  border-bottom: 2px solid #d8b384;
-  padding-bottom: 8px;
-  text-align: center;
-  animation: shimmerSection 5s ease-in-out infinite;
-}
-
-@keyframes shimmerSection {
-  0% { color: #2c1f1e; }
-  50% { color: #d8b384; }
-  100% { color: #2c1f1e; }
-}
-
-/* Other sections */
-.qna, .thank-you, .rsvp-form {
-  background: rgba(255,255,255,0.85);
-  border-radius: 20px;
-  padding: 25px 20px;
-  margin-bottom: 50px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Luxury map containers */
-.map-container {
-  background: rgba(255,255,255,0.85);
-  border-radius: 24px;
-  padding: 25px 20px;
-  margin: 40px auto;
-  max-width: 900px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  text-align: center;
   border: 2px solid #d8b384;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.map-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(255,216,132,0.4);
+.countdown-box span {
+  font-size: 2.6rem;
+  display: block;
+  animation: numberShimmer 4s ease-in-out infinite;
 }
 
-.map-container iframe {
+@keyframes numberShimmer {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 26px;
+  padding: 30px;
+  border: 2px solid #d8b384;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+iframe {
   width: 100%;
-  height: 400px;
-  border: 0;
-  border-radius: 18px;
-}
-
-.map-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
-  color: #2c1f1e;
-  margin-bottom: 15px;
-  animation: shimmerMapTitle 5s ease-in-out infinite;
-}
-
-@keyframes shimmerMapTitle {
-  0% { color: #2c1f1e; }
-  50% { color: #d8b384; }
-  100% { color: #2c1f1e; }
-}
-
-.thank-you img {
-  max-width: 200px;
-  margin-top: 20px;
-  border-radius: 12px;
-}
-
-.rsvp-form iframe {
-  width: 100%;
-  height: 600px;
+  height: 100vh;
   border: none;
-  border-radius: 18px;
+  border-radius: 22px;
 }
 
-@media (max-width: 768px) {
-  .hero-names { font-size: clamp(3rem, 10vw, 6rem); }
-  .hero-date { font-size: 2rem; }
-  .countdown-number { font-size: 2rem; }
-  .countdown-label { font-size: 0.85rem; }
-  .section-header { font-size: 2.4rem; }
-  .map-title { font-size: 1.6rem; }
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 0.9rem;
+  color: #666;
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="logo">Nqobile <i class="fas fa-heart"></i> Sebina</div>
-</nav>
+<header>
+  <h1>Nqobile & Sebina</h1>
+  <p>Friday, March 27, 2026</p>
+</header>
 
-<div class="container">
+<section>
+  <div class="section-title">The Countdown</div>
+  <div class="countdown" id="countdown"></div>
+</section>
 
-<section class="hero">
-  <video autoplay muted loop playsinline preload="auto" class="bg-video">
-    <source src="golden-light.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content">
-    <h1 class="hero-names">Nqobile & Sebina</h1>
-    <p class="hero-date">Friday, March 27, 2026</p>
-    <div class="invite-video-wrapper">
-      <video autoplay muted loop playsinline preload="metadata" class="invite-video">
-        <source src="vid.mp4" type="video/mp4">
-      </video>
-    </div>
+<section>
+  <div class="section-title">Reception</div>
+  <div class="card">
+    <p>Buena Vista Country Estate</p>
+    <p>21 Barnacle Rd, Towerby, Johannesburg South</p>
   </div>
 </section>
 
-<div class="countdown-title">The Countdown</div>
-<div class="countdown" id="countdown"></div>
+<section>
+  <div class="section-title">Venue Map</div>
+  <div class="card">
+    <iframe
+      src="https://www.google.com/maps?q=Buena+Vista+Country+Estate,+21+Barnacle+Rd,+Towerby,+Johannesburg+South,+2091&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
 
-<!-- Reception Map -->
-<div class="map-container">
-  <h3 class="map-title">Reception</h3>
-  <p>Buena Vista Country Estate</p>
-  <img
-    src="https://maps.googleapis.com/maps/api/staticmap?center=-26.302091,27.927307&zoom=16&size=900x400&maptype=roadmap&style=feature:poi|visibility:off&style=feature:transit|visibility:off&style=feature:road|element:labels|visibility:simplified&key=YOUR_GOOGLE_MAPS_API_KEY"
-    alt="Buena Vista Country Estate Map"
-    loading="lazy"
-  >
-</div>
+<section>
+  <div class="section-title">RSVP</div>
+  <div class="card">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform?embedded=true"
+      height="900">
+    </iframe>
+  </div>
+</section>
 
-
-<!-- Wedding Talk Map --><div class="map-container">
-  <h3 class="map-title">Wedding Talk</h3>
-  <p>Kingdom Hall of Jehovah’s Witnesses</p>
-  <img
-    src="https://maps.googleapis.com/maps/api/staticmap?center=-26.325822,27.961391&zoom=16&size=900x400&maptype=roadmap&style=feature:poi|visibility:off&style=feature:transit|visibility:off&style=feature:road|element:labels|visibility:simplified&key=YOUR_GOOGLE_MAPS_API_KEY"
-    alt="Wedding Talk Location Map"
-    loading="lazy"
-  >
-</div>
-
-
-<!-- RSVP -->
-<div class="section-header">RSVP</div>
-<div class="rsvp-form">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform?embedded=true"></iframe>
-</div>
-
-<!-- Q&A -->
-<div class="section-header">Q&A</div>
-<div class="qna">
-  <p><strong>When is the RSVP deadline?</strong> Please RSVP by March 1st.</p>
-  <p><strong>Are kids welcome?</strong> Children are not included in the ceremony or reception.</p>
-  <p><strong>Where should I park?</strong> Plenty of free parking near the entrance.</p>
-  <p><strong>Is the wedding indoors or outdoors?</strong> Everything will be indoor.</p>
-  <p><strong>Is it okay to take pictures?</strong> Yes! Please share on Google link. Avoid photos during the Wedding talk or posting without permission.</p>
-</div>
-
-<!-- Thank You -->
-<div class="thank-you">
-  Thank you for celebrating with us!
-  <img src="00.jpg" alt="Thank You">
-</div>
-
-<footer class="footer" style="text-align:center; margin-bottom:50px;">
+<footer>
   Made with love for Nqobile and Sebina
 </footer>
 
-</div>
-
 <script>
 function updateCountdown() {
-  const weddingDate = new Date("2026-03-27T00:00:00").getTime();
+  const target = new Date("2026-03-27T00:00:00").getTime();
   const now = new Date().getTime();
-  const d = weddingDate - now;
-  if (d < 0) return;
-  const days = Math.floor(d / (1000*60*60*24));
-  const hours = Math.floor((d / (1000*60*60)) % 24);
-  const minutes = Math.floor((d / (1000*60)) % 60);
-  const seconds = Math.floor((d / 1000) % 60);
-  document.getElementById("countdown").innerHTML = `
-    <div class="countdown-item"><div class="countdown-number">${days}</div><div class="countdown-label">Days</div></div>
-    <div class="countdown-item"><div class="countdown-number">${hours}</div><div class="countdown-label">Hours</div></div>
-    <div class="countdown-item"><div class="countdown-number">${minutes}</div><div class="countdown-label">Minutes</div></div>
-    <div class="countdown-item"><div class="countdown-number">${seconds}</div><div class="countdown-label">Seconds</div></div>
-  `;
+  const diff = target - now;
+
+  if (diff < 0) return;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    '<div class="countdown-box"><span>' + d + '</span>Days</div>' +
+    '<div class="countdown-box"><span>' + h + '</span>Hours</div>' +
+    '<div class="countdown-box"><span>' + m + '</span>Minutes</div>' +
+    '<div class="countdown-box"><span>' + s + '</span>Seconds</div>';
 }
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
