@@ -8,7 +8,6 @@
 <link rel="preload" href="golden-light.mp4" as="video">
 <link rel="preload" href="vid.mp4" as="video">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -24,12 +23,6 @@ body {
   background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
   min-height: 100vh;
   overflow-x: hidden;
-  animation: fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 .navbar {
@@ -54,7 +47,6 @@ body {
   padding: 24px;
 }
 
-/* HERO */
 .hero {
   position: relative;
   border-radius: 26px;
@@ -78,10 +70,7 @@ body {
   z-index: 1;
   text-align: center;
   padding: 90px 24px 70px;
-  background: linear-gradient(
-    rgba(247,242,243,0.88),
-    rgba(232,217,207,0.88)
-  );
+  background: linear-gradient(rgba(247,242,243,0.88), rgba(232,217,207,0.88));
 }
 
 .hero-names {
@@ -99,36 +88,10 @@ body {
 }
 
 .video-frame {
-  position: relative;
   display: inline-block;
   border-radius: 18px;
   overflow: hidden;
-  animation: float 6s ease-in-out infinite;
   box-shadow: 0 35px 90px rgba(0,0,0,0.35);
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
-}
-
-.video-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.35),
-    rgba(255,255,255,0),
-    rgba(255,255,255,0.35)
-  );
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.video-frame:hover::after {
-  opacity: 1;
 }
 
 .invite-video {
@@ -139,11 +102,27 @@ body {
 }
 
 /* COUNTDOWN */
+.countdown-wrapper {
+  border: 2px solid rgba(216,179,132,0.6);
+  border-radius: 26px;
+  padding: 40px 20px;
+  margin: 80px 0;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+}
+
+.countdown-title {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  color: #2c1f1e;
+  margin-bottom: 30px;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin: 70px 0;
   flex-wrap: wrap;
 }
 
@@ -168,47 +147,27 @@ body {
   text-transform: uppercase;
 }
 
-/* RSVP */
-.rsvp {
-  background: rgba(255,255,255,0.95);
-  padding: 60px 40px;
-  border-radius: 26px;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
-  margin: 80px 0;
-}
-
-.rsvp h2 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 40px;
-}
-
-.rsvp input,
-.rsvp textarea,
-.rsvp button {
-  width: 100%;
-  padding: 16px;
-  margin-bottom: 18px;
-  border-radius: 12px;
-  border: 2px solid #e0d8d0;
-  font-size: 16px;
-}
-
-.rsvp input[readonly] {
-  background: #f0edea;
-}
-
-.rsvp button {
-  background: linear-gradient(135deg, #d8b384, #cfa16c);
-  color: white;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
-}
-
 /* MAP */
-.map {
+.map-section {
   margin: 80px 0;
+}
+
+.map-header {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;
+  color: #2c1f1e;
+  margin-bottom: 20px;
+}
+
+.map-address {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.map {
   border-radius: 26px;
   overflow: hidden;
   box-shadow: 0 25px 70px rgba(0,0,0,0.15);
@@ -222,8 +181,13 @@ body {
 
 /* THANK YOU */
 .thank-you {
+  border: 2px solid rgba(216,179,132,0.6);
+  border-radius: 26px;
+  padding: 60px 30px;
   text-align: center;
   margin: 100px 0 60px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
 }
 
 .thank-you img {
@@ -240,7 +204,6 @@ body {
   margin-top: 30px;
 }
 
-/* FOOTER */
 .footer {
   text-align: center;
   padding: 30px 20px;
@@ -248,32 +211,13 @@ body {
   color: #666;
   border-top: 1px solid rgba(216,179,132,0.3);
 }
-
-/* SUCCESS OVERLAY */
-.success-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(247,242,243,0.96);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.success-box {
-  background: white;
-  padding: 50px;
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.2);
-}
 </style>
 </head>
 
 <body>
 
 <nav class="navbar">
-  <div class="logo">Nqobile <i class="fas fa-heart"></i> Sebina</div>
+  <div class="logo">Nqobile & Sebina</div>
 </nav>
 
 <div class="container">
@@ -282,38 +226,28 @@ body {
   <video autoplay muted loop playsinline preload="auto" class="bg-video">
     <source src="golden-light.mp4" type="video/mp4">
   </video>
-
   <div class="hero-content">
     <h1 class="hero-names">Nqobile & Sebina</h1>
     <p class="hero-date">Friday, March 27, 2026</p>
-
     <div class="video-frame">
-      <video autoplay muted loop playsinline preload="metadata" class="invite-video">
+      <video autoplay muted loop playsinline class="invite-video">
         <source src="vid.mp4" type="video/mp4">
       </video>
     </div>
   </div>
 </section>
 
-<div class="countdown" id="countdown"></div>
-
-<section class="rsvp">
-  <h2>RSVP</h2>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse"
-        method="POST"
-        target="_blank"
-        onsubmit="showSuccess()">
-    <input name="entry.994600838" placeholder="Full Name" required>
-    <input name="entry.793758707" placeholder="Phone Number" required>
-    <input name="entry.458040034" value="1" readonly>
-    <textarea name="entry.282977896" placeholder="Message"></textarea>
-    <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
-    <button type="submit">Send RSVP</button>
-  </form>
+<section class="countdown-wrapper">
+  <div class="countdown-title">The Countdown</div>
+  <div class="countdown" id="countdown"></div>
 </section>
 
-<section class="map">
-  <iframe src="https://www.google.com/maps?q=21+Barnacle+Rd+Towerby+Johannesburg+South&output=embed"></iframe>
+<section class="map-section">
+  <div class="map-header">Wedding Location</div>
+  <div class="map-address">21 Barnacle Road, Towerby, Johannesburg South</div>
+  <div class="map">
+    <iframe src="https://www.google.com/maps?q=21+Barnacle+Rd+Towerby+Johannesburg+South&output=embed"></iframe>
+  </div>
 </section>
 
 <section class="thank-you">
@@ -327,16 +261,7 @@ body {
 
 </div>
 
-<div class="success-overlay" id="success">
-  <div class="success-box">
-    <h2>Thank You</h2>
-    <p>Your RSVP has been received</p>
-  </div>
-</div>
-
 <script>
-document.addEventListener("contextmenu", e => e.preventDefault());
-
 function updateCountdown() {
   const date = new Date("2026-03-27T00:00:00").getTime();
   const now = new Date().getTime();
@@ -354,10 +279,6 @@ function updateCountdown() {
     <div class="countdown-item"><div class="countdown-number">${m}</div><div class="countdown-label">Minutes</div></div>
     <div class="countdown-item"><div class="countdown-number">${s}</div><div class="countdown-label">Seconds</div></div>
   `;
-}
-
-function showSuccess() {
-  document.getElementById("success").style.display = "flex";
 }
 
 updateCountdown();
