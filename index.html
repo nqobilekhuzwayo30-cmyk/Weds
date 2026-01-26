@@ -5,11 +5,7 @@
 <title>Nqobile and Sebina Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="preload" href="vid.mp4" as="video">
-<link rel="preload" href="golden-light.mp4" as="video">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="1.jpg">
 
 <style>
 * {
@@ -19,239 +15,213 @@
   user-select: none;
 }
 
-body {
+html, body {
+  background: #f7f2f3;
   font-family: Georgia, serif;
-  background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
-  min-height: 100vh;
   overflow-x: hidden;
-  animation: fadeIn 1.2s ease forwards;
 }
 
-@keyframes fadeIn {
+body {
+  animation: pageFade 1.2s ease forwards;
+}
+
+@keyframes pageFade {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-.navbar {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(14px);
-  padding: 18px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  background: linear-gradient(120deg, #f7f2f3, #e9ded8, #f7f2f3);
+  background-size: 300% 300%;
+  animation: shimmer 18s ease infinite;
 }
 
-.logo {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  color: #d8b384;
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 24px;
-}
-
-.hero {
+.invite-frame {
   position: relative;
-  border-radius: 26px;
-  overflow: hidden;
-  margin-top: 40px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.18);
-}
-
-.bg-video {
-  position: absolute;
-  inset: 0;
+  max-width: 820px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 90px 24px 70px;
-  background: linear-gradient(
-    rgba(247,242,243,0.88),
-    rgba(232,217,207,0.88)
-  );
-}
-
-.hero-names {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(3.5rem, 10vw, 7rem);
-  color: #2c1f1e;
-}
-
-.hero-date {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
-  color: #d8b384;
-  font-style: italic;
-  margin: 20px 0 40px;
-}
-
-.video-frame {
-  position: relative;
-  display: inline-block;
   border-radius: 18px;
   overflow: hidden;
-  animation: float 6s ease-in-out infinite;
-  box-shadow: 0 35px 90px rgba(0,0,0,0.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: floatSlow 6s ease-in-out infinite;
 }
 
-@keyframes float {
+@keyframes floatSlow {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 
-.video-frame::after {
+.invite-frame::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.25),
     rgba(255,255,255,0),
-    rgba(255,255,255,0.35)
+    rgba(255,255,255,0.25)
   );
   opacity: 0;
   transition: opacity 0.6s ease;
-}
-
-.video-frame:hover::after {
-  opacity: 1;
-}
-
-.invite-video {
-  width: 100%;
-  max-width: 820px;
-  display: block;
   pointer-events: none;
 }
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin: 70px 0;
-  flex-wrap: wrap;
+.invite-frame:hover::before {
+  opacity: 1;
 }
 
-.countdown-item {
-  background: rgba(255,255,255,0.85);
-  padding: 26px 22px;
-  border-radius: 20px;
-  min-width: 120px;
+.invite-frame:hover {
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.3),
+    0 0 45px rgba(216,179,132,0.45);
+}
+
+.invite-image {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.credit {
   text-align: center;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+  margin-top: 18px;
+  font-size: 14px;
+  color: #322e27;
+  opacity: 0.7;
 }
 
-.countdown-number {
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: #211e20;
+/* RSVP SECTION */
+.rsvp {
+  max-width: 600px;
+  margin: 80px auto 0;
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-.countdown-label {
-  font-size: 0.9rem;
-  color: #666;
-  text-transform: uppercase;
-}
-
-.footer {
+.rsvp h2 {
   text-align: center;
-  margin: 90px 0 30px;
-  color: #666;
-  font-size: 0.9rem;
+  margin-bottom: 30px;
+  font-size: 32px;
 }
 
-/* RSVP Success Overlay */
+.rsvp label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.rsvp input,
+.rsvp textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d6ccc5;
+  margin-bottom: 20px;
+}
+
+.rsvp button {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  background: linear-gradient(120deg, #d8b384, #caa06a);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.rsvp button:hover {
+  box-shadow: 0 15px 40px rgba(216,179,132,0.4);
+}
+
+/* SUCCESS OVERLAY */
 .success-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(247,242,243,0.96);
+  background: rgba(247,242,243,0.95);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  animation: fadeIn 0.6s ease forwards;
+  z-index: 3000;
 }
 
 .success-box {
   background: white;
   padding: 50px;
-  border-radius: 22px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.2);
-  animation: pop 0.6s ease forwards;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  animation: popIn 0.6s ease forwards;
 }
 
-@keyframes pop {
+@keyframes popIn {
   from { transform: scale(0.85); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-.success-box h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 3rem;
-  color: #d8b384;
+.success-box h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 .success-box p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-top: 10px;
+  opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    Nqobile <i class="fas fa-heart"></i> Sebina
-  </div>
-</nav>
+<div class="wrapper">
+  <div>
+    <div class="invite-frame">
+      <img src="1.jpg" alt="Nqobile and Sebina Wedding Invitation" class="invite-image">
+    </div>
 
-<div class="container">
+    <div class="credit">
+      Design by Nqobile Khuzwayo
+    </div>
 
-<section class="hero">
-  <video autoplay muted loop playsinline preload="auto" class="bg-video">
-    <source src="golden-light.mp4" type="video/mp4">
-  </video>
+    <div class="rsvp">
+      <h2>RSVP</h2>
+      <form id="rsvpForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse"
+        method="POST"
+        target="_blank">
 
-  <div class="hero-content">
-    <h1 class="hero-names">Nqobile & Sebina</h1>
-    <p class="hero-date">Friday, March 27, 2026</p>
+        <label>Full Name</label>
+        <input type="text" name="entry.994600838" required>
 
-    <div class="video-frame">
-      <video autoplay muted loop playsinline preload="metadata" class="invite-video" draggable="false">
-        <source src="vid.mp4" type="video/mp4">
-      </video>
+        <label>Phone Number</label>
+        <input type="tel" name="entry.793758707" required>
+
+        <label>Message</label>
+        <textarea name="entry.282977896"></textarea>
+
+        <button type="submit">Send RSVP</button>
+      </form>
     </div>
   </div>
-</section>
-
-<div class="countdown" id="countdown"></div>
-
-<footer class="footer">
-  Made with love for Nqobile and Sebina
-</footer>
-
 </div>
 
 <div class="success-overlay" id="successOverlay">
   <div class="success-box">
-    <h2>Thank You</h2>
-    <p>Your RSVP has been received.</p>
+    <h3>RSVP Received</h3>
+    <p>We look forward to celebrating with you</p>
   </div>
 </div>
 
@@ -264,28 +234,11 @@ document.addEventListener("click", () => {
   }
 }, { once: true });
 
-function updateCountdown() {
-  const date = new Date("2026-03-27T00:00:00").getTime();
-  const now = new Date().getTime();
-  const diff = date - now;
-
-  if (diff < 0) return;
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("countdown").innerHTML = `
-    <div class="countdown-item"><div class="countdown-number">${d}</div><div class="countdown-label">Days</div></div>
-    <div class="countdown-item"><div class="countdown-number">${h}</div><div class="countdown-label">Hours</div></div>
-    <div class="countdown-item"><div class="countdown-number">${m}</div><div class="countdown-label">Minutes</div></div>
-    <div class="countdown-item"><div class="countdown-number">${s}</div><div class="countdown-label">Seconds</div></div>
-  `;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
+document.getElementById("rsvpForm").addEventListener("submit", () => {
+  const overlay = document.getElementById("successOverlay");
+  overlay.style.display = "flex";
+  setTimeout(() => overlay.style.display = "none", 4000);
+});
 </script>
 
 </body>
