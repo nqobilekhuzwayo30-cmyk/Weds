@@ -115,20 +115,50 @@ body::before {
 
 .invite-video-wrapper { display: inline-block; margin-top: 20px; }
 
-/* COUNTDOWN */
-.countdown span {
-  font-size: 26px;
-  font-weight: bold;
-  color: #d8b384;
-  text-shadow: 0 0 4px #fff, 0 0 8px #d8b384, 0 0 12px #ffd88c;
-  animation: shimmerCount 3s ease-in-out infinite;
-  margin: 0 6px;
-}
+/* Countdown */
+.countdown-title { text-align: center; font-size: 2.8rem; margin: 60px 0 30px; border: 2px solid #d8b384; display: inline-block; padding: 12px 24px; border-radius: 12px; }
+.countdown { display: flex; justify-content: center; gap: 24px; margin-bottom: 50px; flex-wrap: wrap; }
+.countdown-item { background: rgba(255,255,255,0.85); padding: 26px 22px; border-radius: 20px; min-width: 120px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.countdown-number { font-size: 2.6rem; font-weight: bold; color: #d8b384; }
+.countdown-label { font-size: 0.9rem; color: #666; text-transform: uppercase; }
 
-@keyframes shimmerCount {
-  0% { text-shadow: 0 0 2px #d8b384; }
-  50% { text-shadow: 0 0 8px #fff, 0 0 12px #d8b384, 0 0 16px #ffd88c; }
-  100% { text-shadow: 0 0 2px #d8b384; }
+/* Section headers */
+.section-header { font-size: 3rem; text-align: center; margin: 60px 0 25px; border-bottom: 2px solid #d8b384; padding-bottom: 8px; }
+
+/* Content blocks */
+.map-container, .qna, .thank-you { background: rgba(255,255,255,0.85); border-radius: 20px; padding: 25px; margin-bottom: 50px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* RSVP Card */
+.rsvp-card { background: rgba(216,179,132,0.15); padding: 50px; border-radius: 28px; max-width: 400px; margin: 40px auto; text-align: center; transition: 0.5s; }
+.rsvp-card:hover { transform: scale(1.02); }
+.rsvp-card h2 { color:#b89b5e; margin-bottom: 20px; }
+.rsvp-card input { width:100%; padding:14px; margin:10px 0; border-radius:10px; border:none; background:rgba(255,255,255,0.15); color:#333; }
+.rsvp-card input[readonly]{opacity:0.7;}
+.rsvp-card button { width:100%; padding:16px; border:none; border-radius:40px; background:#d8b384; color:black; font-size:16px; cursor:pointer; transition:0.3s; }
+.rsvp-card button:hover{background:#cfa16c;}
+.success{display:none; padding:20px; color:#b89b5e; animation:fadeIn 1s ease;}
+@keyframes fadeIn{from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);}}
+
+iframe { width:100%; border-radius:18px; }
+.thank-you img { max-width:200px; margin-top:20px; border-radius:12px; }
+
+@media (max-width:768px){
+  .hero-names{font-size:clamp(3rem,10vw,6rem);}
+  .hero-date{font-size:2rem;}
+  .countdown-number{font-size:2rem;}
+  .countdown-label{font-size:0.85rem;}
+  .section-header{font-size:2.4rem;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">Nqobile <i class="fas fa-heart"></i> Sebina</div>
+</nav>
+
+<div class="container">
 }
 
 /* CARD */
