@@ -35,15 +35,28 @@ h1, h2, h3 {
   color: #d8b384;
 }
 
-/* HERO */
+/* HERO WITH VIDEO */
 .hero {
   min-height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   background: rgba(255,255,255,0.9);
   padding: 50px 40px;
   border-radius: 18px;
@@ -60,7 +73,7 @@ h1, h2, h3 {
   font-size: 18px;
 }
 
-/* COUNTDOWN STYLE HEADER */
+/* HEADER STYLE */
 .header-box {
   border: 2px solid #d8b384;
   border-radius: 14px;
@@ -70,10 +83,6 @@ h1, h2, h3 {
 }
 
 /* COUNTDOWN */
-.countdown {
-  margin-top: 30px;
-}
-
 .countdown span {
   font-size: 22px;
   margin: 0 8px;
@@ -183,20 +192,24 @@ button {
 <body>
 
 <section class="hero">
+
+  <video autoplay muted loop playsinline>
+    <source src="vid.mp4" type="video/mp4">
+  </video>
+
   <div class="hero-content">
     <h1 class="gold">Nqobile and Sebina</h1>
     <p>We are getting married</p>
 
-    <div class="countdown">
-      <div class="header-box">
-        <h2 class="gold">The Countdown</h2>
-        <span id="days">0</span>Days
-        <span id="hours">0</span>Hours
-        <span id="minutes">0</span>Minutes
-        <span id="seconds">0</span>Seconds
-      </div>
+    <div class="header-box">
+      <h2 class="gold">The Countdown</h2>
+      <span id="days">0</span>Days
+      <span id="hours">0</span>Hours
+      <span id="minutes">0</span>Minutes
+      <span id="seconds">0</span>Seconds
     </div>
   </div>
+
 </section>
 
 <section>
@@ -270,12 +283,12 @@ button {
 
     <div class="qa-item">
       <h3>Are kids welcome?</h3>
-      <p>As much as we love your little ones, we will not be including them in the ceremony or reception.</p>
+      <p>As much as we love your little ones, we will not be including them.</p>
     </div>
 
     <div class="qa-item">
       <h3>Where should I park?</h3>
-      <p>There is plenty of free parking available near the entrance of the venue.</p>
+      <p>There is plenty of free parking available near the entrance.</p>
     </div>
 
     <div class="qa-item">
@@ -286,9 +299,9 @@ button {
     <div class="qa-item">
       <h3>Can we take pictures during the wedding?</h3>
       <p>
-        Yes, you are welcome to take photos and videos and share them using our Google link.
-        Please refrain from taking photos during the wedding talk.
-        Do not post any pictures online without permission from the bride and groom.
+        Yes, photos and videos are welcome.
+        Please avoid photos during the wedding talk.
+        Do not post online without permission.
       </p>
     </div>
   </div>
