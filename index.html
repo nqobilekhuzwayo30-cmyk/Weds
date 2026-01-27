@@ -5,6 +5,8 @@
 <title>Nqobile and Sebina Wedding</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
@@ -20,21 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
-
-h1, h2, h3 {
-  text-align: center;
-  font-weight: normal;
-}
-
-.gold {
-  color: #d8b384;
-}
-
 /* HERO VIDEO */
 .hero {
   position: relative;
@@ -48,7 +35,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.hero video {
+.hero video.bg-video {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -56,6 +43,8 @@ h1, h2, h3 {
   top: 0;
   left: 0;
   z-index: 0;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -67,11 +56,12 @@ h1, h2, h3 {
 .hero-content h1 {
   font-family: "Dancing Script", cursive;
   font-size: 4.8rem;
-  color: #e3c79a;
+  color: #2c1f1e;
 }
 
 .hero-content p {
   font-size: 1.6rem;
+  color: #d8b384;
 }
 
 /* Invite Video */
@@ -87,9 +77,22 @@ h1, h2, h3 {
   width: 100%;
   border-radius: 18px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  animation: floatSlow 6s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-/* HEADER STYLE */
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
+  100% { box-shadow: 0 35px 100px rgba(255,216,132,0.6); }
+}
+
+/* HEADER BOX */
 .header-box {
   border: 2px solid #d8b384;
   border-radius: 14px;
@@ -97,12 +100,23 @@ h1, h2, h3 {
   display: inline-block;
   margin-bottom: 30px;
   background: rgba(255,255,255,0.9);
+  text-align: center;
 }
 
 /* COUNTDOWN */
 .countdown span {
-  font-size: 22px;
-  margin: 0 8px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #d8b384;
+  text-shadow: 0 0 4px #fff, 0 0 8px #d8b384, 0 0 12px #ffd88c;
+  animation: shimmerCount 3s ease-in-out infinite;
+  margin: 0 6px;
+}
+
+@keyframes shimmerCount {
+  0% { text-shadow: 0 0 2px #d8b384; }
+  50% { text-shadow: 0 0 8px #fff, 0 0 12px #d8b384, 0 0 16px #ffd88c; }
+  100% { text-shadow: 0 0 2px #d8b384; }
 }
 
 /* CARD */
@@ -210,7 +224,7 @@ button {
 
 <!-- HERO VIDEO -->
 <section class="hero">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline class="bg-video">
     <source src="golden-light.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
@@ -315,16 +329,30 @@ button {
   Made with love by Nqobile and Sebina
 </footer>
 
+<!-- Countdown Script -->
 <script>
 const weddingDate = new Date("2026-03-27T00:00:00").getTime();
 setInterval(function () {
   const now = new Date().getTime();
   const diff = weddingDate - now;
   if (diff <= 0) return;
-  document.getElementById("days").textContent = Math.floor(diff / 86400000);
-  document.getElementById("hours").textContent = Math.floor(diff / 3600000 % 24);
-  document.getElementById("minutes").textContent = Math.floor(diff / 60000 % 60);
-  document.getElementById("seconds").textContent = Math.floor(diff / 1000 % 60);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff / 3600000 % 24);
+  const minutes = Math.floor(diff / 60000 % 60);
+  const seconds = Math.floor(diff / 1000 % 60);
+
+  // insert into countdown
+  const countdownElements = document.querySelectorAll('.countdown span');
+  if(countdownElements.length === 0){
+    // create if missing
+    const headerBox = document.querySelector('.header-box');
+    headerBox.innerHTML += `<div class="countdown"><span>${days}</span>Days <span>${hours}</span>Hours <span>${minutes}</span>Minutes <span>${seconds}</span>Seconds</div>`;
+  } else {
+    countdownElements[0].textContent = days;
+    countdownElements[1].textContent = hours;
+    countdownElements[2].textContent = minutes;
+    countdownElements[3].textContent = seconds;
+  }
 }, 1000);
 </script>
 
