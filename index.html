@@ -54,7 +54,7 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 .address { margin-top: 18px; font-size: 16px; line-height: 1.6; }
 .address a { color: #2e2a25; text-decoration: none; border-bottom: 1px solid #d8b384; }
-.time { color:#d8b384; font-weight:bold; }
+.time { font-weight: bold; color:#d8b384; }
 
 /* RSVP */
 .rsvp-card input, .rsvp-card textarea { width:100%; padding:14px; margin:10px 0; border-radius:10px; border:none; background:rgba(255,255,255,0.15); color:#333; }
@@ -113,7 +113,7 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 <!-- WEDDING TALK -->
 <div class="map-container">
-  <div class="header-box"><a href="https://www.google.com/maps?q=1%20Milner%20Drive%20Kibler%20Park%20Johannesburg" target="_blank" style="text-decoration:none; color:#2c1f1e;">Wedding Talk</a></div>
+  <div class="header-box"><a href="https://www.google.com/maps?q=1+Milner+Drive+Kibler+Park+Johannesburg" target="_blank" style="color:#2c1f1e;text-decoration:none;">Wedding Talk</a></div>
   <p class="time">Kibler Park Kingdom Hall – 13:00</p>
   <iframe src="https://www.google.com/maps?q=1%20Milner%20Drive%20Kibler%20Park%20Johannesburg&output=embed"></iframe>
   <div class="address">
@@ -125,7 +125,7 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 <!-- RECEPTION -->
 <div class="map-container">
-  <div class="header-box"><a href="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South" target="_blank" style="text-decoration:none; color:#2c1f1e;">Reception</a></div>
+  <div class="header-box"><a href="https://www.google.com/maps?q=21+Barnacle+Rd+Towerby+Johannesburg+South" target="_blank" style="color:#2c1f1e;text-decoration:none;">Reception</a></div>
   <p class="time">Buena Vista Country Estate wedding venue – 15:00</p>
   <iframe src="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South&output=embed"></iframe>
   <div class="address">
@@ -138,14 +138,14 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 <!-- RSVP -->
 <div class="rsvp-card">
   <div class="header-box">RSVP</div>
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="rsvpSubmitted=true;"></iframe>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="hidden_iframe" onsubmit="showRSVPSuccess();">
+  <form id="rsvpForm" action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="hidden_iframe">
     <input name="entry.994600838" placeholder="Full Name" required>
     <input name="entry.793758707" placeholder="Phone Number" required>
     <input value="1" readonly>
     <textarea name="entry.282977896" placeholder="Message"></textarea>
     <button type="submit">Send RSVP</button>
   </form>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <div id="rsvpSuccess" class="success">
     <h2>Thank you!</h2>
     <p>Your RSVP has been submitted.</p>
@@ -184,13 +184,10 @@ setInterval(function() {
   document.getElementById('seconds').textContent = Math.floor(diff/1000 % 60);
 }, 1000);
 
-// RSVP success handler
-function showRSVPSuccess(){
-  setTimeout(function(){
-    document.getElementById('rsvpForm').style.display='none';
-    document.getElementById('rsvpSuccess').style.display='block';
-  }, 500);
-}
+// RSVP success
+document.getElementById('rsvpForm').addEventListener('submit', function(){
+  document.getElementById('rsvpSuccess').style.display = 'block';
+});
 </script>
 </body>
 </html>
