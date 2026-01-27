@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: Georgia, serif;
+  font-family: "Cormorant Garamond", serif;
   background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
   min-height: 100vh;
   overflow-x: hidden;
@@ -92,6 +92,16 @@ body {
   display: inline-block;
   margin-bottom: 30px;
   font-weight: bold;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  color: #2c1f1e;
+  animation: floatHeader 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatHeader {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
 /* Map & Address */
@@ -154,7 +164,7 @@ body {
 
 /* Q&A */
 .qa-item { margin-bottom: 30px; }
-.qa-item h3 { color: #d8b384; margin-bottom: 8px; }
+.qa-item h3 { color: #d8b384; margin-bottom: 8px; font-family: "Playfair Display", serif; }
 
 /* THANK YOU */
 .thank-you img { max-width:200px; margin-top:20px; border-radius:12px; }
@@ -166,6 +176,7 @@ body {
   .hero-date{font-size:2rem;}
   .countdown-number{font-size:2rem;}
   .countdown-label{font-size:0.85rem;}
+  .header-box{font-size:2.2rem;}
 }
 </style>
 </head>
@@ -249,7 +260,7 @@ body {
 
 <!-- THANK YOU -->
 <div class="thank-you">
-  <h2 class="gold">Thank You</h2>
+  <div class="header-box"><h2 class="gold">Thank You</h2></div>
   <p>We cannot wait to celebrate this special day with you.</p>
   <img src="00.jpg" alt="Thank You">
 </div>
