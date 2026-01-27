@@ -60,8 +60,6 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 .rsvp-card input[readonly]{opacity:0.7;}
 .rsvp-card button { width:100%; padding:16px; border:none; border-radius:40px; background:#d8b384; color:black; font-size:16px; cursor:pointer; transition:0.3s; }
 .rsvp-card button:hover{background:#cfa16c;}
-.success{display:none; padding:20px; color:#b89b5e; animation:fadeIn 1s ease;}
-@keyframes fadeIn{from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);}}
 
 /* Q&A */
 .qa-item { margin-bottom: 30px; }
@@ -127,18 +125,13 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 <!-- RSVP -->
 <div class="rsvp-card">
   <div class="header-box">RSVP</div>
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="rsvpThankYou()"></iframe>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="hidden_iframe" id="rsvpForm">
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform" method="GET">
     <input name="entry.994600838" placeholder="Full Name" required>
     <input name="entry.793758707" placeholder="Phone Number" required>
     <input value="1" readonly>
     <textarea name="entry.282977896" placeholder="Message"></textarea>
     <button type="submit">Send RSVP</button>
   </form>
-  <div id="rsvpSuccess" class="success">
-    <h2>Thank you!</h2>
-    <p>Your RSVP has been submitted.</p>
-  </div>
 </div>
 
 <!-- Q&A -->
@@ -172,12 +165,6 @@ setInterval(function() {
   document.getElementById('minutes').textContent = Math.floor(diff/60000 % 60);
   document.getElementById('seconds').textContent = Math.floor(diff/1000 % 60);
 }, 1000);
-
-// RSVP Thank You
-function rsvpThankYou() {
-  document.getElementById('rsvpForm').style.display='none';
-  document.getElementById('rsvpSuccess').style.display='block';
-}
 </script>
 </body>
 </html>
