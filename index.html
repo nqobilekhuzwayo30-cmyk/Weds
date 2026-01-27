@@ -1,57 +1,306 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title>Nqobile and Sebina Wedding</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <style> * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; } body { font-family: Georgia, serif; background: #f7f2f3; color: #2e2a25; overflow-x: hidden; } section { max-width: 1100px; margin: 0 auto; padding: 80px 20px; } h1, h2, h3 { text-align: center; font-weight: normal; } .gold { color: #d8b384; } .section-title { border: 2px solid #d8b384; border-radius: 14px; padding: 16px 24px; display: inline-block; margin-bottom: 40px; } /* HERO */ .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; } .hero-content { background: rgba(255,255,255,0.85); padding: 50px 40px; border-radius: 18px; text-align: center; box-shadow: 0 25px 70px rgba(0,0,0,0.15); } .hero-content h1 { font-size: 44px; margin-bottom: 12px; } .hero-content p { font-size: 18px; } /* COUNTDOWN */ .countdown { margin-top: 30px; } .countdown-box { border: 2px solid #d8b384; border-radius: 14px; padding: 20px; display: inline-block; } .countdown span { font-size: 22px; margin: 0 8px; } /* CARD */ .card { background: #ffffff; border-radius: 18px; padding: 40px; margin-bottom: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; } iframe { width: 100%; height: 400px; border: none; border-radius: 14px; margin-top: 20px; } /* RSVP */ form { max-width: 600px; margin: 0 auto; } label { display: block; margin-top: 20px; margin-bottom: 6px; } input, textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #d8b384; font-family: Georgia, serif; } textarea { min-height: 120px; } button { margin-top: 30px; padding: 16px; width: 100%; border: none; border-radius: 12px; background: #d8b384; color: white; font-size: 18px; cursor: pointer; } /* Q AND A */ .qa-item { margin-bottom: 30px; } .qa-item h3 { color: #d8b384; margin-bottom: 8px; } .qa-item p { line-height: 1.6; } /* THANK YOU */ .thank-you { text-align: center; border: 2px solid #d8b384; border-radius: 18px; padding: 40px; } .thank-you img { max-width: 100%; border-radius: 14px; margin-top: 20px; } /* FOOTER */ .footer { text-align: center; padding: 30px 20px; font-size: 14px; opacity: 0.7; } </style> </head> <body> <section class="hero"> <div class="hero-content"> <h1 class="gold">Nqobile and Sebina</h1> <p>We are getting married</p>
-<div class="countdown">
-  <div class="countdown-box">
-    <h2 class="gold">The Countdown</h2>
-    <span id="days">0</span>Days
-    <span id="hours">0</span>Hours
-    <span id="minutes">0</span>Minutes
-    <span id="seconds">0</span>Seconds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nqobile and Sebina Wedding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f7f2f3;
+  color: #2e2a25;
+  overflow-x: hidden;
+}
+
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-weight: normal;
+}
+
+.gold {
+  color: #d8b384;
+}
+
+.section-title {
+  border: 2px solid #d8b384;
+  border-radius: 14px;
+  padding: 16px 24px;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.85);
+  padding: 50px 40px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+}
+
+.hero-content h1 {
+  font-size: 44px;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 18px;
+}
+
+/* COUNTDOWN */
+.countdown {
+  margin-top: 30px;
+}
+
+.countdown-box {
+  border: 2px solid #d8b384;
+  border-radius: 14px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.countdown span {
+  font-size: 22px;
+  margin: 0 8px;
+}
+
+/* CARD */
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+/* RSVP */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d8b384;
+  font-family: Georgia, serif;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #d8b384;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Q AND A */
+.qa-item {
+  margin-bottom: 30px;
+}
+
+.qa-item h3 {
+  color: #d8b384;
+  margin-bottom: 8px;
+}
+
+.qa-item p {
+  line-height: 1.6;
+}
+
+/* THANK YOU */
+.thank-you {
+  text-align: center;
+  border: 2px solid #d8b384;
+  border-radius: 18px;
+  padding: 40px;
+}
+
+.thank-you img {
+  max-width: 100%;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+  <!-- VIDEO HERO ADDED -->
+  <video autoplay muted loop playsinline>
+    <source src="vid.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1 class="gold">Nqobile and Sebina</h1>
+    <p>We are getting married</p>
+
+    <div class="countdown">
+      <div class="countdown-box">
+        <h2 class="gold">The Countdown</h2>
+        <span id="days">0</span>Days
+        <span id="hours">0</span>Hours
+        <span id="minutes">0</span>Minutes
+        <span id="seconds">0</span>Seconds
+      </div>
+    </div>
   </div>
-</div>
 
-</div> </section> <section> <div class="card"> <h2 class="section-title gold">Reception</h2> <iframe src="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South&output=embed"></iframe> </div> <div class="card"> <h2 class="section-title gold">RSVP</h2>
-<form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="_blank">
-  <label>Full Name</label>
-  <input type="text" name="entry.994600838" required>
+</section>
 
-  <label>Phone Number</label>
-  <input type="tel" name="entry.793758707" required>
+<section>
 
-  <label>Number of Guests</label>
-  <input type="text" value="1" name="entry.458040034" readonly>
+  <div class="card">
+    <h2 class="section-title gold">Reception</h2>
+    <iframe src="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South&output=embed"></iframe>
+  </div>
 
-  <label>Message</label>
-  <textarea name="entry.282977896"></textarea>
+  <div class="card">
+    <h2 class="section-title gold">RSVP</h2>
 
-  <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="_blank">
+      <label>Full Name</label>
+      <input type="text" name="entry.994600838" required>
 
-  <button type="submit">Send RSVP</button>
-</form>
+      <label>Phone Number</label>
+      <input type="tel" name="entry.793758707" required>
 
-</div> <div class="card"> <h2 class="section-title gold">Questions and Answers</h2>
-<div class="qa-item">
-  <h3>When is the RSVP deadline?</h3>
-  <p>Please RSVP by March 1st, so we can have an accurate headcount.</p>
-</div>
+      <label>Number of Guests</label>
+      <input type="text" value="1" name="entry.458040034" readonly>
 
-<div class="qa-item">
-  <h3>Are kids welcome?</h3>
-  <p>As much as we love your little ones, they will not be included.</p>
-</div>
+      <label>Message</label>
+      <textarea name="entry.282977896"></textarea>
 
-<div class="qa-item">
-  <h3>Where should I park?</h3>
-  <p>There is plenty of free parking near the entrance.</p>
-</div>
+      <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
 
-<div class="qa-item">
-  <h3>Is the wedding indoors or outdoors?</h3>
-  <p>Everything will be indoor.</p>
-</div>
+      <button type="submit">Send RSVP</button>
+    </form>
+  </div>
 
-<div class="qa-item">
-  <h3>Is it okay to take pictures?</h3>
-  <p>Please avoid photos during the wedding talk and posting without permission.</p>
-</div>
+  <div class="card">
+    <h2 class="section-title gold">Questions and Answers</h2>
 
-</div> <div class="thank-you"> <h2 class="gold">Thank You</h2> <p>We cannot wait to celebrate this special day with you.</p> <img src="00.jpg" alt="Thank you"> </div> </section> <footer class="footer"> Made with love by Nqobile and Sebina </footer> <script> const weddingDate = new Date("2026-03-27T00:00:00").getTime(); setInterval(function () { const now = new Date().getTime(); const diff = weddingDate - now; if (diff <= 0) return; document.getElementById("days").textContent = Math.floor(diff / 86400000); document.getElementById("hours").textContent = Math.floor(diff / 3600000 % 24); document.getElementById("minutes").textContent = Math.floor(diff / 60000 % 60); document.getElementById("seconds").textContent = Math.floor(diff / 1000 % 60); }, 1000); </script> </body> </html>
+    <div class="qa-item">
+      <h3>When is the RSVP deadline?</h3>
+      <p>Please RSVP by March 1st, so we can have an accurate headcount.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Are kids welcome?</h3>
+      <p>As much as we love your little ones, they will not be included.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Where should I park?</h3>
+      <p>There is plenty of free parking near the entrance.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Is the wedding indoors or outdoors?</h3>
+      <p>Everything will be indoor.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Is it okay to take pictures?</h3>
+      <p>Please avoid photos during the wedding talk and posting without permission.</p>
+    </div>
+  </div>
+
+  <div class="thank-you">
+    <h2 class="gold">Thank You</h2>
+    <p>We cannot wait to celebrate this special day with you.</p>
+    <img src="00.jpg" alt="Thank you">
+  </div>
+
+</section>
+
+<footer class="footer">
+  Made with love by Nqobile and Sebina
+</footer>
+
+<script>
+const weddingDate = new Date("2026-03-27T00:00:00").getTime();
+
+setInterval(function () {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+  if (diff <= 0) return;
+
+  document.getElementById("days").textContent = Math.floor(diff / 86400000);
+  document.getElementById("hours").textContent = Math.floor(diff / 3600000 % 24);
+  document.getElementById("minutes").textContent = Math.floor(diff / 60000 % 60);
+  document.getElementById("seconds").textContent = Math.floor(diff / 1000 % 60);
+}, 1000);
+</script>
+
+</body>
+</html>
