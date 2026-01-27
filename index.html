@@ -1,294 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Nqobile and Sebina Wedding</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
-  -webkit-user-drag: none;
-  user-drag: none;
-}
-
-body {
-  font-family: Georgia, serif;
-  background: linear-gradient(135deg, #f7f2f3, #e8d9cf);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
-  background-size: 200% 200%;
-  animation: shimmerBg 6s linear infinite;
-  z-index: -1;
-}
-
-@keyframes shimmerBg {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.navbar {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(16px);
-  padding: 18px 0;
-  position: sticky;
-  top: 0;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  color: #d8b384;
-  font-weight: 700;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 24px;
-}
-
-/* VIDEO HERO FROM FIRST FILE */
-.hero {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-top: 40px;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.18);
-}
-
-.bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 90px 24px 70px;
-  text-align: center;
-  background: linear-gradient(rgba(247,242,243,0.85), rgba(232,217,207,0.85));
-}
-
-.hero-names {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(4rem, 12vw, 7rem);
-  color: #2c1f1e;
-}
-
-.hero-date {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.4rem;
-  color: #d8b384;
-  margin: 20px 0 40px;
-}
-
-.invite-video {
-  width: 100%;
-  max-width: 820px;
-  border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-  animation: floatSlow 6s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes floatSlow {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
-  100% { box-shadow: 0 35px 100px rgba(255,216,132,0.6); }
-}
-
-.invite-video-wrapper {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-/* COUNTDOWN */
-.countdown-title {
-  text-align: center;
-  font-size: 2.8rem;
-  margin: 60px 0 30px;
-  border: 2px solid #d8b384;
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 12px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-}
-
-.countdown-item {
-  background: rgba(255,255,255,0.85);
-  padding: 26px 22px;
-  border-radius: 20px;
-  min-width: 120px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.countdown-number {
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: #d8b384;
-}
-
-.countdown-label {
-  font-size: 0.9rem;
-  color: #666;
-  text-transform: uppercase;
-}
-
-/* SECTION HEADERS */
-.section-header {
-  font-size: 3rem;
-  text-align: center;
-  margin: 60px 0 25px;
-  border-bottom: 2px solid #d8b384;
-  padding-bottom: 8px;
-}
-
-/* CONTENT BLOCKS */
-.map-container,
-.rsvp-form,
-.qna,
-.thank-you {
-  background: rgba(255,255,255,0.85);
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 50px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-iframe {
-  width: 100%;
-  height: 450px;
-  border: none;
-  border-radius: 18px;
-}
-
-.thank-you img {
-  max-width: 200px;
-  margin-top: 20px;
-  border-radius: 12px;
-}
-</style>
-</head>
-
-<body>
-
-<nav class="navbar">
-  <div class="logo">Nqobile <i class="fas fa-heart"></i> Sebina</div>
-</nav>
-
-<div class="container">
-
-<!-- HERO -->
-<section class="hero">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="golden-light.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content">
-    <h1 class="hero-names">Nqobile & Sebina</h1>
-    <p class="hero-date">Friday, March 27, 2026</p>
-    <div class="invite-video-wrapper">
-      <video autoplay muted loop playsinline class="invite-video">
-        <source src="vid.mp4" type="video/mp4">
-      </video>
-    </div>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title>Nqobile and Sebina Wedding</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <style> * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; } body { font-family: Georgia, serif; background: #f7f2f3; color: #2e2a25; overflow-x: hidden; } section { max-width: 1100px; margin: 0 auto; padding: 80px 20px; } h1, h2, h3 { text-align: center; font-weight: normal; } .gold { color: #d8b384; } .section-title { border: 2px solid #d8b384; border-radius: 14px; padding: 16px 24px; display: inline-block; margin-bottom: 40px; } /* HERO */ .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; } .hero-content { background: rgba(255,255,255,0.85); padding: 50px 40px; border-radius: 18px; text-align: center; box-shadow: 0 25px 70px rgba(0,0,0,0.15); } .hero-content h1 { font-size: 44px; margin-bottom: 12px; } .hero-content p { font-size: 18px; } /* COUNTDOWN */ .countdown { margin-top: 30px; } .countdown-box { border: 2px solid #d8b384; border-radius: 14px; padding: 20px; display: inline-block; } .countdown span { font-size: 22px; margin: 0 8px; } /* CARD */ .card { background: #ffffff; border-radius: 18px; padding: 40px; margin-bottom: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; } iframe { width: 100%; height: 400px; border: none; border-radius: 14px; margin-top: 20px; } /* RSVP */ form { max-width: 600px; margin: 0 auto; } label { display: block; margin-top: 20px; margin-bottom: 6px; } input, textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #d8b384; font-family: Georgia, serif; } textarea { min-height: 120px; } button { margin-top: 30px; padding: 16px; width: 100%; border: none; border-radius: 12px; background: #d8b384; color: white; font-size: 18px; cursor: pointer; } /* Q AND A */ .qa-item { margin-bottom: 30px; } .qa-item h3 { color: #d8b384; margin-bottom: 8px; } .qa-item p { line-height: 1.6; } /* THANK YOU */ .thank-you { text-align: center; border: 2px solid #d8b384; border-radius: 18px; padding: 40px; } .thank-you img { max-width: 100%; border-radius: 14px; margin-top: 20px; } /* FOOTER */ .footer { text-align: center; padding: 30px 20px; font-size: 14px; opacity: 0.7; } </style> </head> <body> <section class="hero"> <div class="hero-content"> <h1 class="gold">Nqobile and Sebina</h1> <p>We are getting married</p>
+<div class="countdown">
+  <div class="countdown-box">
+    <h2 class="gold">The Countdown</h2>
+    <span id="days">0</span>Days
+    <span id="hours">0</span>Hours
+    <span id="minutes">0</span>Minutes
+    <span id="seconds">0</span>Seconds
   </div>
-</section>
-
-<div class="countdown-title">The Countdown</div>
-<div class="countdown" id="countdown"></div>
-
-<div class="section-header">Reception</div>
-<div class="map-container">
-  <p>Buena Vista Country Estate</p>
-  <iframe src="https://www.google.com/maps?q=Buena+Vista+Country+Estate,+21+Barnacle+Rd,+Towerby,+Johannesburg+South&output=embed" loading="lazy"></iframe>
 </div>
 
-<div class="section-header">Wedding Talk</div>
-<div class="map-container">
-  <p>Kingdom Hall of Jehovah’s Witnesses</p>
-  <iframe src="https://www.google.com/maps?q=10+Sherwood+Ave+Kibler+Park+Johannesburg&output=embed" loading="lazy"></iframe>
+</div> </section> <section> <div class="card"> <h2 class="section-title gold">Reception</h2> <iframe src="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South&output=embed"></iframe> </div> <div class="card"> <h2 class="section-title gold">RSVP</h2>
+<form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="_blank">
+  <label>Full Name</label>
+  <input type="text" name="entry.994600838" required>
+
+  <label>Phone Number</label>
+  <input type="tel" name="entry.793758707" required>
+
+  <label>Number of Guests</label>
+  <input type="text" value="1" name="entry.458040034" readonly>
+
+  <label>Message</label>
+  <textarea name="entry.282977896"></textarea>
+
+  <input type="hidden" name="entry.1549863212" value="Wedding Talk and Reception">
+
+  <button type="submit">Send RSVP</button>
+</form>
+
+</div> <div class="card"> <h2 class="section-title gold">Questions and Answers</h2>
+<div class="qa-item">
+  <h3>When is the RSVP deadline?</h3>
+  <p>Please RSVP by March 1st, so we can have an accurate headcount.</p>
 </div>
 
-<div class="section-header">RSVP</div>
-<div class="rsvp-form">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform?embedded=true" height="900"></iframe>
+<div class="qa-item">
+  <h3>Are kids welcome?</h3>
+  <p>As much as we love your little ones, they will not be included.</p>
 </div>
 
-<div class="section-header">Q&A</div>
-<div class="qna">
-  <p><strong>When is the RSVP deadline?</strong> Please RSVP by March 1st.</p>
-  <p><strong>Are kids welcome?</strong> Children are not included in the ceremony or reception.</p>
-  <p><strong>Where should I park?</strong> Plenty of free parking near the entrance.</p>
-  <p><strong>Is the wedding indoors or outdoors?</strong> Everything will be indoor.</p>
-  <p><strong>Is it okay to take pictures?</strong> Yes! Please share on Google link. Avoid photos during Wedding talk or posting without permission.</p>
+<div class="qa-item">
+  <h3>Where should I park?</h3>
+  <p>There is plenty of free parking near the entrance.</p>
 </div>
 
-<div class="thank-you">
-  Thank you for celebrating with us.
-  <img src="00.jpg" alt="Thank You">
+<div class="qa-item">
+  <h3>Is the wedding indoors or outdoors?</h3>
+  <p>Everything will be indoor.</p>
 </div>
 
-<footer style="text-align:center; margin-bottom:50px;">
-  Made with love for Nqobile and Sebina
-</footer>
-
+<div class="qa-item">
+  <h3>Is it okay to take pictures?</h3>
+  <p>Please avoid photos during the wedding talk and posting without permission.</p>
 </div>
 
-<script>
-function updateCountdown() {
-  const target = new Date("2026-03-27T00:00:00").getTime();
-  const now = new Date().getTime();
-  const diff = target - now;
-  if (diff < 0) return;
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("countdown").innerHTML =
-    `<div class="countdown-item"><div class="countdown-number">${d}</div><div class="countdown-label">Days</div></div>
-     <div class="countdown-item"><div class="countdown-number">${h}</div><div class="countdown-label">Hours</div></div>
-     <div class="countdown-item"><div class="countdown-number">${m}</div><div class="countdown-label">Minutes</div></div>
-     <div class="countdown-item"><div class="countdown-number">${s}</div><div class="countdown-label">Seconds</div></div>`;
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-
-</body>
-</html>
+</div> <div class="thank-you"> <h2 class="gold">Thank You</h2> <p>We cannot wait to celebrate this special day with you.</p> <img src="00.jpg" alt="Thank you"> </div> </section> <footer class="footer"> Made with love by Nqobile and Sebina </footer> <script> const weddingDate = new Date("2026-03-27T00:00:00").getTime(); setInterval(function () { const now = new Date().getTime(); const diff = weddingDate - now; if (diff <= 0) return; document.getElementById("days").textContent = Math.floor(diff / 86400000); document.getElementById("hours").textContent = Math.floor(diff / 3600000 % 24); document.getElementById("minutes").textContent = Math.floor(diff / 60000 % 60); document.getElementById("seconds").textContent = Math.floor(diff / 1000 % 60); }, 1000); </script> </body> </html>
