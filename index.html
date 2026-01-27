@@ -48,18 +48,20 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 /* Section Headers */
 .header-box { text-align: center; border: 2px solid #d8b384; border-radius: 14px; padding: 14px 20px; display: inline-block; margin-bottom: 25px; font-weight: bold; font-family: "Playfair Display", serif; font-size: 2rem; color: #2c1f1e; animation: floatHeader 6s ease-in-out infinite alternate; }
+.header-box a { color: #d8b384; text-decoration: none; }
 
 /* Cards */
 .map-container, .qna, .thank-you, .rsvp-card { background: rgba(255,255,255,0.85); border-radius: 20px; padding: 25px; margin-bottom: 50px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.3); animation: floatSlow 8s ease-in-out infinite alternate; }
 .address { margin-top: 18px; font-size: 16px; line-height: 1.6; }
-.address a { color: #2e2a25; text-decoration: none; border-bottom: 1px solid #d8b384; }
-.time { color: #b89b5e; font-weight: bold; }
+.time { color: #b89b5e; font-weight: bold; font-size: 1.2rem; margin-bottom: 12px; }
 
 /* RSVP */
 .rsvp-card input, .rsvp-card textarea { width:100%; padding:14px; margin:10px 0; border-radius:10px; border:none; background:rgba(255,255,255,0.15); color:#333; }
 .rsvp-card input[readonly]{opacity:0.7;}
 .rsvp-card button { width:100%; padding:16px; border:none; border-radius:40px; background:#d8b384; color:black; font-size:16px; cursor:pointer; transition:0.3s; }
 .rsvp-card button:hover{background:#cfa16c;}
+.success{display:none; padding:20px; color:#b89b5e; animation:fadeIn 1s ease;}
+@keyframes fadeIn{from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);}}
 
 /* Q&A */
 .qa-item { margin-bottom: 30px; }
@@ -125,13 +127,18 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 <!-- RSVP -->
 <div class="rsvp-card">
   <div class="header-box">RSVP</div>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/viewform" method="GET">
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
     <input name="entry.994600838" placeholder="Full Name" required>
     <input name="entry.793758707" placeholder="Phone Number" required>
     <input value="1" readonly>
     <textarea name="entry.282977896" placeholder="Message"></textarea>
     <button type="submit">Send RSVP</button>
   </form>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('rsvpSuccess').style.display='block'; this.style.display='none';}"></iframe>
+  <div id="rsvpSuccess" class="success">
+    <h2>Thank you!</h2>
+    <p>Your RSVP has been submitted.</p>
+  </div>
 </div>
 
 <!-- Q&A -->
