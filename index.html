@@ -51,10 +51,9 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 /* Cards */
 .map-container, .qna, .thank-you, .rsvp-card { background: rgba(255,255,255,0.85); border-radius: 20px; padding: 25px; margin-bottom: 50px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.3); animation: floatSlow 8s ease-in-out infinite alternate; }
-
 .address { margin-top: 18px; font-size: 16px; line-height: 1.6; }
 .address a { color: #2e2a25; text-decoration: none; border-bottom: 1px solid #d8b384; }
-.time { font-weight:bold; color:#d8b384; font-size:1.2rem; }
+.time { color: #b89b5e; font-weight: bold; }
 
 /* RSVP */
 .rsvp-card input, .rsvp-card textarea { width:100%; padding:14px; margin:10px 0; border-radius:10px; border:none; background:rgba(255,255,255,0.15); color:#333; }
@@ -113,14 +112,9 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
 
 <!-- WEDDING TALK -->
 <div class="map-container">
-  <div class="header-box"><a href="https://www.google.com/maps?q=1+Milner+Drive+Kibler+Park+Johannesburg" target="_blank">Wedding Talk</a></div>
+  <div class="header-box"><a href="https://www.google.com/maps?q=1+Milner+Drive+Kibler+Park+Johannesburg+2059" target="_blank">Wedding Talk</a></div>
   <p class="time">Kibler Park Kingdom Hall – 13:00</p>
   <iframe src="https://www.google.com/maps?q=1%20Milner%20Drive%20Kibler%20Park%20Johannesburg&output=embed"></iframe>
-  <div class="address">
-    <a href="https://www.google.com/maps?q=1+Milner+Drive+Kibler+Park+Johannesburg+2059" target="_blank">
-      1 Milner Drive<br>Corner of Sherwood Road<br>Kibler Park<br>Johannesburg 2059
-    </a>
-  </div>
 </div>
 
 <!-- RECEPTION -->
@@ -128,17 +122,13 @@ body { font-family: "Cormorant Garamond", serif; background: linear-gradient(135
   <div class="header-box"><a href="https://www.google.com/maps?q=21+Barnacle+Road+Towerby+Johannesburg+South" target="_blank">Reception</a></div>
   <p class="time">Buena Vista Country Estate wedding venue – 15:00</p>
   <iframe src="https://www.google.com/maps?q=21%20Barnacle%20Rd%20Towerby%20Johannesburg%20South&output=embed"></iframe>
-  <div class="address">
-    <a href="https://www.google.com/maps?q=21+Barnacle+Road+Towerby+Johannesburg+South" target="_blank">
-      21 Barnacle Road<br>Towerby<br>Johannesburg South
-    </a>
-  </div>
 </div>
 
 <!-- RSVP -->
 <div class="rsvp-card">
   <div class="header-box">RSVP</div>
-  <form id="rsvpForm" action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="_self">
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="rsvpThankYou()"></iframe>
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScNfgJbch0Xz2KU7RaLt58EaeB2QoEcxtvL7_S8GzjflThXqg/formResponse" method="POST" target="hidden_iframe" id="rsvpForm">
     <input name="entry.994600838" placeholder="Full Name" required>
     <input name="entry.793758707" placeholder="Phone Number" required>
     <input value="1" readonly>
@@ -183,16 +173,11 @@ setInterval(function() {
   document.getElementById('seconds').textContent = Math.floor(diff/1000 % 60);
 }, 1000);
 
-// RSVP Submission – shows thank you immediately, submits to Google Form
-const rsvpForm = document.getElementById('rsvpForm');
-rsvpForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  const formData = new FormData(this);
-  fetch(this.action, { method: 'POST', mode: 'no-cors', body: formData }).finally(()=>{
-    this.style.display='none';
-    document.getElementById('rsvpSuccess').style.display='block';
-  });
-});
+// RSVP Thank You
+function rsvpThankYou() {
+  document.getElementById('rsvpForm').style.display='none';
+  document.getElementById('rsvpSuccess').style.display='block';
+}
 </script>
 </body>
 </html>
