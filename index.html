@@ -300,7 +300,6 @@ Time <span class="time">15:00</span>
 
 </div>
 
-
 <div class="thank-you">
 <div class="header-box">Thank You</div>
 <p>We cannot wait to celebrate with you.</p>
@@ -313,14 +312,24 @@ Time <span class="time">15:00</span>
 
 <script>
 const weddingDate=new Date("2026-03-27T00:00:00").getTime()
-setInterval(()=>{
+function updateCountdown(){
 const diff=weddingDate-Date.now()
-if(diff<=0)return
+if(diff<=0){
+document.getElementById("days").textContent="–"
+document.getElementById("hours").textContent="–"
+document.getElementById("minutes").textContent="–"
+document.getElementById("seconds").textContent="–"
+document.querySelector(".countdown-title").textContent="The wedding has started"
+return
+}
 days.textContent=Math.floor(diff/86400000)
 hours.textContent=Math.floor(diff/3600000%24)
 minutes.textContent=Math.floor(diff/60000%60)
 seconds.textContent=Math.floor(diff/1000%60)
-},1000)
+}
+setInterval(updateCountdown,1000)
+updateCountdown()
+
 var submitted=false
 function showThankYou(){
 if(submitted){
